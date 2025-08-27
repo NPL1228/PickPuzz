@@ -1,0 +1,86 @@
+.loginContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+    margin: 50px;
+    background-color: #F7F1F1;
+    border-radius: 20px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.loginTitle {
+    position: absolute;
+    top: 20px;
+    margin-bottom: 30px;
+}
+
+.loginForm {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    font-size: 25px;
+}
+
+.loginForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.passwordHint {
+    font-size: 14px;
+    color: #888;
+}
+
+#loginSubmit {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #F6CA93;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.forgotPassword {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+hr {
+    margin: 15px;
+    border: none;
+    width: 80%;
+    height: 1px;
+    background-color: #ccc; 
+}
+
+.registerPrompt {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#createAcc {
+    margin-top: 10px;
+    width: 300px;
+    text-align: center;
+    padding: 10px;
+    background-color: #F6CA93;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+
+}

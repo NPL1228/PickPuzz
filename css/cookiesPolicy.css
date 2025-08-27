@@ -1,0 +1,24 @@
+.cookiesSection {
+    margin: 80px;
+}
+
+.cookiesSection h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.cookiesSection p {
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.cookiesSection a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.cookiesSection a:hover {
+    color: #0065d0;
+}

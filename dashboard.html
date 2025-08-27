@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard-PickPuzz</title>
+    <!-- font avesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <!-- bootstap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+
+    <link rel="icon" type="image/x-icon" href="picture/favicon.ico">
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="menu">
+            <img id="menuIcon" src="picture/menu.png" alt="menu" width="40px" height="40px">
+        </div>
+        <div class="logo">
+            <a href="index.html"><img id="logoIcon" src="picture/logo2c.png" alt="logo" width="145px" height="75px"></a>
+        </div>
+        <div class="navBar">
+            <a href="aboutUs.html">About Us</a>
+            <a href="allProducts.html">All Products</a>
+            <a href="customMade.html">Custom Made</a>
+            <a href="contactUs.html">Contact Us</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <div class="searchBar">
+            <img id="magGlassIcon" src="picture/magGlass.png" alt="magGlass" width="25px" height="25px">
+            <input id="search" type="text" placeholder="search for product">
+            <button id="clearSearchBtn" class="clearSearchBtn" style="display: none;">×</button>
+
+        </div>
+        <div id="cart">
+            <a href="cart.html"><img id="cartIcon" src="picture/cart.png" alt="cart" width="45px" height="45px"></a>
+        </div>
+        <div id="profile">
+            <img src="picture/profile.png" alt="profile" width="45px" height="45px">
+        </div>
+        <div class="dropdown" id="profileDropdown">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </div>
+        <div class="dropdown" id="signDropdown">
+            <a href="register.html">Sign Up</a>
+            <a href="login.html">Sign In</a>
+        </div>
+    </div>
+
+    <main>
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar Column -->
+                <div class="col-2">
+                    <div class="sidebar">
+                        <ul class="nav flex-column nav-pills">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#profileSection">
+                                    <i class="fas fa-user me-2"></i>
+                                    Profile
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#bankCardSection">
+                                    <i class="fas fa-credit-card me-2"></i>
+                                    Bank Card</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#addressSection"><i
+                                        class="fas fa-map-marker-alt me-2"></i>Address</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#purchasesSection"><i
+                                        class="fas fa-shopping-bag me-2"></i>Purchases</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#passwordSection"><i class="fas fa-lock me-2"></i>Change
+                                    Password</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Main Content Column -->
+                <div class="col-9">
+                    <div class="main-content">
+
+                        <div id="profileSection" class="section active">
+                            <h3>Profile</h3>
+
+                            <!-- User Name -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="col-3 info-label">User Name:</div>
+                                <div class="col-7 info-value text-start flex-grow-1" id="username"></div>
+                            </div>
+                            <div class="divider"></div>
+
+                            <!-- Email -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="col-3 info-label">Email address:</div>
+                                <div class="col-7 info-value text-start flex-grow-1" id="email"></div>
+                            </div>
+                            <div class="divider"></div>
+
+                            <!-- Phone with Country Code -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="col-3 info-label">Phone:</div>
+                                <div class="col-7 info-value text-start flex-grow-1">
+                                    <span id="countryCode"></span> <span id="phone"></span>
+                                </div>
+                            </div>
+                            <div class="divider"></div>
+
+                            <!-- Gender -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="col-3 info-label">Gender:</div>
+                                <div class="col-7 info-value text-start flex-grow-1" id="gender"></div>
+                            </div>
+                            <div class="divider"></div>
+
+                            <!-- Date of Birth -->
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="col-3 info-label">Date of Birth:</div>
+                                <div class="col-7 info-value text-start flex-grow-1" id="dob"></div>
+                            </div>
+
+                            <!-- Button bottom -->
+                            <div class="d-flex justify-content-center mt-4">
+                                <button class="edit-btn" onclick="toggleForm('profile')">
+                                    <i class="fa-solid fa-pen-to-square"></i> Edit Profile
+                                </button>
+                            </div>
+                        </div>
+
+
+                        <!-- Popup Form for Profile -->
+                        <div class="popup-overlay" id="popupFormProfile">
+                            <div class="popup-content">
+                                <div class="close-btn" onclick="toggleForm('profile')">
+                                    <i class="fas fa-times"></i>
+                                </div>
+
+                                <h2>Edit Profile</h2>
+
+                                <form id="profileForm">
+                                    <!-- Username -->
+                                    <div class="input-group">
+                                        <label for="editUsername">User Name:</label>
+                                        <input type="text" id="editUsername" placeholder="Enter username">
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="input-group">
+                                        <label for="editEmail">Email address:</label>
+                                        <input type="email" id="editEmail" placeholder="Enter email" required>
+                                    </div>
+
+                                    <!-- Phone with Country Code -->
+                                    <div class="input-group">
+                                        <label for="editPhone">Phone:</label>
+                                        <div class="row g-0">
+                                            <!-- Country code: smaller width -->
+                                            <div class="col-4">
+                                                <select class="form-select" id="editCountryCode"
+                                                    onchange="updateCountryLabel()">
+                                                    <option value="+60">+60</option>
+                                                    <option value="+65">+65</option>
+                                                    <option value="+86">+86</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Telephone: take up the rest -->
+                                            <div class="col">
+                                                <input type="tel" id="editPhone" placeholder="Phone number"
+                                                    class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <!-- Gender -->
+                                    <div class="input-group">
+                                        <label>Gender:</label>
+                                        <div class="radio-group">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="editGender"
+                                                    id="editMale" value="Male">
+                                                <label class="form-check-label" for="editMale">Male</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="editGender"
+                                                    id="editFemale" value="Female">
+                                                <label class="form-check-label" for="editFemale">Female</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="editGender"
+                                                    id="editOther" value="Prefer not to say">
+                                                <label class="form-check-label" for="editOther">Prefer not to
+                                                    say</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Date of Birth -->
+                                    <div class="input-group">
+                                        <label for="editDob">Date of Birth:</label>
+                                        <input type="date" id="editDob">
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button type="button" class="discard-btn" onclick="toggleForm('profile')">
+                                            <i class="fa-solid fa-trash"></i>
+                                            Discard
+                                        </button>
+                                        <button type="button" class="save-btn" onclick="saveProfile()">
+                                            <i class="fa-solid fa-floppy-disk"></i>
+                                            Save
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="bankCardSection" class="section">
+                        <h3>Bank Card Info</h3>
+
+                        <ul class="cards-container" id="bankCardsContainer">
+                            <!-- Bank cards data -->
+                        </ul>
+
+                        <div class="d-flex justify-content-center my-3">
+                            <button class="add-btn" id="add-card" onclick="toggleForm('bankCard')">
+                                <i class="fa-solid fa-plus"></i>
+                                Add New
+                            </button>
+                        </div>
+
+                        <!-- Popup Form for Bank Account -->
+                        <div class="popup-overlay" id="popupFormBankCard">
+                            <div class="popup-content">
+                                <div class="close-btn" onclick="toggleForm('bankCard')">
+                                    <i class="fas fa-times"></i>
+                                </div>
+
+                                <h2 id="bankCardFormTitle">Add New Bank Card</h2>
+
+                                <form id="bankCardForm">
+                                    <input type="hidden" id="editBankCardIndex" value="-1">
+
+                                    <div class="input-group">
+                                        <label for="bankCardName">Bank Card Name</label>
+                                        <input type="text" id="bankCardName" placeholder="Enter bank card name">
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="accountNumber">Account Number</label>
+                                        <input type="text" id="accountNumber" maxlength=19
+                                            placeholder="#### #### #### ####">
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="input-group">
+                                                <label for="expiryDate">Expiry Date</label>
+                                                <input type="text" id="expiryDate" maxlength="5" placeholder="MM/YY">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="input-group">
+                                                <label for="cvv">CVV</label>
+                                                <input type="text" id="cvv" placeholder="Enter CVV" maxlength="3">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button type="button" class="discard-btn" onclick="toggleForm('bankCard')">
+                                            <i class="fa-solid fa-trash"></i>
+                                            Discard
+                                        </button>
+                                        <button type="button" class="save-btn" onclick="saveBankCard()">
+                                            <i class="fa-solid fa-floppy-disk"></i>
+                                            Save
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section" id="addressSection">
+                        <h3>Address</h3>
+
+                        <ul class="cards-container" id="addressCardsContainer">
+                            <!-- address data -->
+                        </ul>
+
+                        <div class="d-flex justify-content-center my-3">
+                            <button class="add-btn" id="add-card" onclick="toggleForm('address')">
+                                <i class="fa-solid fa-plus"></i>
+                                Add New
+                            </button>
+                        </div>
+
+                        <!-- Popup Form for Address -->
+                        <div class="popup-overlay" id="popupFormAddress">
+                            <div class="popup-content">
+                                <div class="close-btn" onclick="toggleForm('address')">
+                                    <i class="fas fa-times"></i>
+                                </div>
+
+                                <h3 id="addressFormTitle">Add New Address</h3>
+
+                                <form id="addressForm">
+                                    <input type="hidden" id="editAddressIndex" value="-1">
+
+                                    <div class="input-group">
+                                        <label for="addressTitle">Title</label>
+                                        <input type="text" id="addressTitle" placeholder="Address Title">
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="address1">Address Line 1</label>
+                                        <input type="text" id="address1" placeholder="Address Line 1">
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="address2">Address Line 2</label>
+                                        <input type="text" id="address2" placeholder="Address Line 2">
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="input-group">
+                                                <label for="postalCode">Postal Code</label>
+                                                <input type="text" id="postalCode" placeholder="Postal code">
+                                            </div>
+                                        </div>
+                                        <div class="col">
+                                            <div class="input-group">
+                                                <label for="city">City</label>
+                                                <input type="text" id="city" placeholder="Enter City">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="state">State</label>
+                                        <input type="text" id="state" placeholder="State">
+                                    </div>
+
+                                    <div class="input-group">
+                                        <label for="addressPhone">Phone</label>
+                                        <input type="text" id="addressPhone" placeholder="Phone number">
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button type="button" class="discard-btn" onclick="toggleForm('address')">
+                                            <i class="fa-solid fa-trash"></i>
+                                            Discard
+                                        </button>
+                                        <button type="button" class="save-btn" onclick="saveAddress()">
+                                            <i class="fa-solid fa-floppy-disk"></i>
+                                            Save
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Popup for Details for bank card and address -->
+                    <div class="popup-overlay" id="popupDetailsOverlay">
+                        <div class="popup-content">
+                            <div class="close-btn" onclick="closeDetailsPopup()">
+                                <i class="fas fa-times"></i>
+                            </div>
+
+                            <div class="popup-header">
+                                <h2 id="detailsTitle">Details</h2>
+                            </div>
+
+                            <div class="popup-details" id="popupDetails">
+                                <!-- Details data -->
+                            </div>
+
+                            <div class="popup-actions">
+                                <button class="edit-btn" id="popupEditBtn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="discard-btn" id="popupRemoveBtn">
+                                    <i class="fas fa-trash"></i> Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section" id="purchasesSection">
+                        <h3>Purchases History</h3>
+                        <ul class="cards-container" id="purchasesList">
+                            <!-- Purchases will be rendered here -->
+                        </ul>
+                    </div>
+
+                    <div id="passwordSection" class="section">
+                        <h3>Change Password</h3>
+                        <form id="passwordForm">
+                            <div class="input-group">
+                                <label for="oldPassword">Old Password</label>
+                                <input type="password" class="form-control" id="oldPassword"
+                                    placeholder="Enter old password">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="newPassword">New Password</label>
+                                <input type="password" class="form-control" id="newPassword"
+                                    placeholder="Enter new password">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="confirmPassword">Confirm Password</label>
+                                <input type="password" class="form-control" id="confirmPassword"
+                                    placeholder="Confirm password">
+                            </div>
+                            <a href="forgot.html">Forgot password</a>
+
+                            <div class="d-flex justify-content-center my-3">
+                                <button type="submit" class="save-btn" id="savePasswordBtn">
+                                    <i class="fa-solid fa-floppy-disk"></i>
+                                    Save
+                                </button>
+                            </div>
+                            <br>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="filterCatContainer">
+
+            <div class="catSection">
+                <h1>Category</h1>
+                <ul class="catOptions">
+                    <li><a href="allProducts.html">All Products</a></li>
+                    <li><a href="allProducts.html?category=Accessories">Accessories</a></li>
+                    <li><a href="allProducts.html?category=New Arrivals">New Arrivals</a></li>
+                    <li><a href="allProducts.html?category=Christmas Special">Christmas Special</a></li>
+                    <li><a href="allProducts.html?category=Snoopy is Here!">Snoopy is Here</a></li>
+                    <li><a href="allProducts.html?category=Best Seller">Best Seller</a></li>
+                </ul>
+            </div>
+            <div class="filterSection">
+                <h1>Filter</h1>
+                <div class="filterSub" data-filter="material">
+                    <h2>Material</h2>
+                    <div class="checkboxGroup">
+                        <div class="checkboxOption">
+                            <input type="checkbox" id="glass">
+                            <label for="glass">Glass</label>
+                        </div>
+                        <div class="checkboxOption">
+                            <input type="checkbox" id="plastic">
+                            <label for="plastic">Plastic</label>
+                        </div>
+                        <div class="checkboxOption">
+                            <input type="checkbox" id="steel">
+                            <label for="steel">Steel</label>
+                        </div>
+                        <div class="checkboxOption">
+                            <input type="checkbox" id="cardboard">
+                            <label for="cardboard">Cardboard</label>
+                        </div>
+                        <div class="checkboxOption">
+                            <input type="checkbox" id="wooden">
+                            <label for="wooden">Wooden</label>
+                        </div>
+                        <div class="checkboxOption">
+                            <input type="checkbox" id="diamond">
+                            <label for="diamond">Diamond</label>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="filterSub">
+                    <h2>Price Range</h2>
+                    <div class="priceInputContainer">
+                        <div class="priceInput">
+                            <div class="priceField">
+                                <span>Min</span>
+                                <input type="number" class="minInput" value="0" title="Minimum price">
+                                <label for="minInput"></label>
+    
+                            </div>
+                            <div class="priceField">
+                                <span>Max</span>
+                                <input type="number" class="maxInput" value="1000" title="Maximum price">
+                                <label for="maxInput"></label>
+    
+                            </div>
+                        </div>
+                        <div class="slider">
+                            <div class="priceSlider"></div>
+                        </div>
+                    </div>
+    
+                    <div class="rangeInput">
+                        <input type="range" class="minRange" min="0" max="1000" value="0" step="1" title="Minimum price range">
+                        <label for="minRange"></label>
+    
+                        <input type="range" class="maxRange" min="0" max="1000" value="1000" step="1" title="Maximum price range">
+                        <label for="maxRange"></label>
+    
+                    </div>
+                </div>
+    
+                <div class="filterSub" data-filter="pieces">
+                    <h2>Pieces</h2>
+                    <div class="checkboxGroup">
+                        <div class="checkboxOption">
+                            <input type="checkbox" id="100-500">
+                            <label for="100-500">100-500 pieces</label>
+                        </div>
+                        <div class="checkboxOption">
+                            <input type="checkbox" id="500-1000">
+                            <label for="500-1000">500-1000 pieces</label>
+                        </div>
+                        <div class="checkboxOption">
+                            <input type="checkbox" id="1000+">
+                            <label for="1000+">1000+ pieces</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="filterButtons">
+                    <button id="resetFiltersBtn" class="resetBtn">Reset Filters</button>
+                    <button id="applyFiltersBtn" class="applyBtn">Apply Filters</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="overlay"></div>
+    </main>
+
+    <footer>
+        <div class="footMain">
+            <div class="footInfo">
+                <div class="footLogo">
+                    <img id="logoIcon" src="picture/logo2c.png" alt="logo" width="165px" height="85px">
+                </div>
+                <p>Pick any Puzzle of Your Choice!</p>
+            </div>
+
+            <div class="footInfo">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="allProduct.html">All Products</a></li>
+                    <li><a href="aboutUs.html">About Us</a></li>
+                    <li><a href="contactUs.html">Contact Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footInfo">
+                <h4>Our Products</h4>
+                <ul>
+                    <li><a href="allProducts.html?category=Accessories">Accessories</a></li>
+                    <li><a href="allProducts.html?category=New Arrivals">New Arrivals</a></li>
+                    <li><a href="allProducts.html?category=Christmas Special">Christmas Special</a></li>
+                    <li><a href="allProducts.html?category=Snoopy is Here!">Snoopy is Here</a></li>
+                    <li><a href="allProducts.html?category=Best Seller">Best Seller</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footInfo" id="contact">
+                <h4>Contact Us</h4>
+                <a href="mailto:pickpuzz@example.com"><img src="picture/email.png" alt="email" width="33px"
+                        height="23px"></a>
+                <a href="mailto:pickpuzz@example.com"><img src="picture/phone.png" alt="phone" width="25px"
+                        height="25px"></a>
+                <a href="https://facebook.com"><img src="picture/fb.png" alt="Facebook" width="25px" height="25px"></a>
+                <a href="https://instagram.com"><img src="picture/ig.png" alt="Instagram" width="25px"
+                        height="25px"></a>
+
+
+            </div>
+        </div>
+
+        <div class="footCopy">
+            <p>&copy; 2025 PickPuzz. All rights reserved.</p>
+        </div>
+
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

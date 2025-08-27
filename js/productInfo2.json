@@ -1,0 +1,287 @@
+{
+    "products": [
+        {
+            "id": "animal12",
+            "name": "12 Animal Signs",
+            "price": 200.00,
+            "description": "\"12 Zodiac\" puzzle brings the Chinese zodiac to life with vibrant artistry and cultural significance. Piece by piece, uncover a stunning scene showcasing all twelve animal signs, each depicted with unique charm and detail. Perfect for those who appreciate astrology, tradition, and the beauty of symbolic art.",
+            "images": [
+                "picture/Animal12/animal12-1.webp",
+                "picture/Animal12/animal12-2.webp",
+                "picture/Animal12/animal12-3.webp",
+                "picture/Animal12/animal12-4.webp",
+                "picture/Animal12/animal12-5.webp"
+            ],
+            "details": {
+                "pieces": 1000,
+                "material": "Glass",
+                "size": "15cm x 20cm"
+            },
+            "includes": [
+                "The poster",
+                "12 animal signs key chains",
+                "Puzzle Glue"
+            ],
+            "stock": 22,
+            "category": "Best Seller"
+        },
+        {
+            "id": "access1",
+            "name": "Puzzle Sorter",
+            "price": 50.00,
+            "description": "Easy sorting - sort puzzle pieces by color. Efficient organization - combine containers to save space and organize stacking space. Convenient storage and carrying - a matching box will allow you to easily store and carry containers with sorted puzzles.",
+            "images": [
+                "picture/access1/access1-1.png",
+                "picture/access1/access1-2.png"
+            ],
+            "details": {
+                "pieces": "-",
+                "material": "Plastic",
+                "size": "19cm x 19cm"
+            },
+            "includes": [
+                "6 containers"
+            ],
+            "stock": 100,
+            "category": "Accessories"
+        },
+        {
+            "id": "access1",
+            "name": "Puzzle Sorter",
+            "price": 50.00,
+            "description": "Easy sorting - sort puzzle pieces by color. Efficient organization - combine containers to save space and organize stacking space. Convenient storage and carrying - a matching box will allow you to easily store and carry containers with sorted puzzles.",
+            "images": [
+                "picture/access1/access1-1.png",
+                "picture/access1/access1-2.png"
+            ],
+            "details": {
+                "pieces": "-",
+                "material": "Plastic",
+                "size": "19cm x 19cm"
+            },
+            "includes": [
+                "6 containers"
+            ],
+            "stock": 100,
+            "category": "Accessories"
+        },
+        {
+            "id": "access1",
+            "name": "Puzzle Sorter",
+            "price": 50.00,
+            "description": "Easy sorting - sort puzzle pieces by color. Efficient organization - combine containers to save space and organize stacking space. Convenient storage and carrying - a matching box will allow you to easily store and carry containers with sorted puzzles.",
+            "images": [
+                "picture/access1/access1-1.png",
+                "picture/access1/access1-2.png"
+            ],
+            "details": {
+                "pieces": "-",
+                "material": "Plastic",
+                "size": "19cm x 19cm"
+            },
+            "includes": [
+                "6 containers"
+            ],
+            "stock": 100,
+            "category": "Accessories"
+        },
+        {
+            "id": "access2",
+            "name": "Puzzle Storage ",
+            "price": 200.00,
+            "description": "This is a wooden puzzle storage rack with multiple horizontal slots, designed to neatly organize and store flat puzzles. It keeps puzzles easily accessible, prevents pieces from getting lost, and saves space in classrooms or playrooms.",
+            "images": [
+                "picture/access2/access2-1.webp",
+                "picture/access2/access2-2.webp",
+                "picture/access2/access2-3.webp"
+            ],
+            "details": {
+                "pieces": "-",
+                "material": "Steel",
+                "size": "60cm x 40cm x 80cm"
+            },
+            "includes": [
+                "12 slots"
+            ],
+            "stock": 88,
+            "category": "Accessories"
+        },
+        {
+            "id": "chrismas1",
+            "name": "Christmas Square",
+            "price": 77.90,
+            "description": "\"Christmas Square\" captures the magic of the holiday season with a bustling street adorned with festive lights, decorated trees, and cheerful holiday charm. Piece by piece, create a cozy and heartwarming scene filled with the joy and wonder of Christmas. Perfect for celebrating the most wonderful time of the year!",
+            "images": [
+                "picture/christmas1/chrismas1-1.webp",
+                "picture/christmas1/chrismas1-2.webp",
+                "picture/christmas1/chrismas1-3.jpg",
+                "picture/christmas1/chrismas1-4.webp",
+                "picture/christmas1/chrismas1-5.webp",
+                "picture/christmas1/chrismas1-6.webp",
+                "picture/christmas1/chrismas1-7.webp"
+            ],
+            "details": {
+                "pieces": 250,
+                "material": "Cardboard",
+                "size": "50cm x 70cm"
+            },
+            "includes": [
+                "The poster",
+                "4 bags of puzzle pieces",
+                "Puzzle Glue"
+            ],
+            "stock": 10,
+            "category": "Christmas Special"
+        },
+        {
+            "id": "chrismas2",
+            "name": "Wasgij Christmas 18 - Gingerbread Showstopper",
+            "price": 350.00,
+            "description": "It’s the most wonderful time of the year and at the Upper Snoddlington Gingerbread House Competition, the tension is heating up! But when the time comes to award prizes for the finished creations, the judges cannot believe their eyes. Something leads them to believe that one of the contestants might have had a little more help than the others, but what could it possibly be?",
+            "images": [
+                "picture/christmas2/chrismas2-1.webp",
+                "picture/christmas2/chrismas2-2.webp",
+                "picture/christmas2/chrismas2-3.webp",
+                "picture/christmas2/chrismas2-4.webp"
+            ],
+            "details": {
+                "pieces": 2000,
+                "material": "Wooden",
+                "size": "68cm x 49cm"
+            },
+            "includes": [
+                "The poster",
+                "Key chains",
+                "Puzzle Glue"
+            ],
+            "stock": 55,
+            "category": "Christmas Special"
+        },
+        {
+            "id": "snoopy1",
+            "name": "Jigsaw Puzzle Snoopy Peanuts Comic History",
+            "price": 400.00,
+            "description": "Peanuts Comic History 1000-piece jigsaw puzzle featuring Snoopy, Charlie Brown, and friends with vibrant comic strip backgrounds and a school bus centerpiece..",
+            "images": [
+                "picture/snoopy1/snoopy1-1.webp",
+                "picture/snoopy1/snoopy1-2.webp",
+                "picture/snoopy1/snoopy1-3.webp",
+                "picture/snoopy1/snoopy1-4.webp",
+                "picture/snoopy1/snoopy1-5.webp",
+                "picture/snoopy1/snoopy1-6.webp",
+                "picture/snoopy1/snoopy1-7.webp"
+            ],
+            "details": {
+                "pieces": 1000,
+                "material": "Cardboard",
+                "size": "50cm x 75cm"
+            },
+            "includes": [
+                "The poster",
+                "Snoopy model",
+                "Puzzle Glue"
+            ],
+            "stock": 22,
+            "category": "Snoopy is Here!"
+        },
+        {
+            "id": "snoopy2",
+            "name": "AQUARIUS Peanuts Snoopy Beagle Scouts - Comic ",
+            "price": 666.00,
+            "description": "SNOOPY BEAGLE SCOUTS 1000 PIECE JIGSAW PUZZLE: Enjoy piecing together this 1000 piece puzzle featuring our favorite Beagle Scout Snoopy and his sidekick Woodstock. LOOKING FOR SNOOPY GIFTS? This puzzle is the ultimate gift for Peanuts, Snoopy and Woodstock fans of all ages.",
+            "images": [
+                "picture/snoopy2/snoopy2-1.jpg",
+                "picture/snoopy2/snoopy2-2.jpg",
+                "picture/snoopy2/snoopy2-3.jpg",
+                "picture/snoopy2/snoopy2-4.jpg",
+                "picture/snoopy2/snoopy2-5.jpg"
+            ],
+            "details": {
+                "pieces": 1000,
+                "material": "Glass",
+                "size": "50cm x 75cm"
+            },
+            "includes": [
+                "The poster",
+                "Snoopy model",
+                "Puzzle Glue"
+            ],
+            "stock": 22,
+            "category": "Snoopy is Here!"
+        },
+        {
+            "id": "star",
+            "name": "Starlit Odyssey",
+            "price": 243.00,
+            "description": "Step into the vastness of space with a design that captures the quiet beauty of the cosmos. Set against a deep, star-speckled backdrop, the translucent pieces shimmer like distant galaxies, adding a sense of mystery and wonder to every touch. The scene evokes the feeling of standing on a distant moon, gazing into infinity—an ode to exploration, imagination, and the allure of the unknown.",
+            "images": [
+                "picture/star/star1.webp",
+                "picture/star/star2.webp",
+                "picture/star/star3.webp",
+                "picture/star/star4.webp",
+                "picture/star/star5.webp"
+            ],
+            "details": {
+                "pieces": 500,
+                "material": "Plastic",
+                "size": "60.5cm x 74.8cm"
+            },
+            "includes": [
+                "The poster",
+                "Astronant model",
+                "Puzzle Glue"
+            ],
+            "stock": 111,
+            "category": "New Arrivals"
+        },
+        {
+            "id": "sun",
+            "name": "Aztec Sun Stone",
+            "price": 400.00,
+            "description": "The Sun Stone, a monumental artifact of Mexica heritage, represents their belief in various creation and destruction stages of the world.",
+            "images": [
+                "picture/sun/sun1.webp",
+                "picture/sun/sun2.webp",
+                "picture/sun/sun3.webp",
+                "picture/sun/sun4.webp"
+            ],
+            "details": {
+                "pieces": 1000,
+                "material": "Glass",
+                "size": "20cm x 50cm"
+            },
+            "includes": [
+                "The poster",
+                "Aztec Sun Stone board",
+                "Puzzle Glue"
+            ],
+            "stock": 212,
+            "category": "Best Seller"
+        },
+        {
+            "id": "white",
+            "name": "Micro Pure White Hell Jigsaw Puzzle",
+            "price": 999.00,
+            "description": "The Micro Pure White Hell Jigsaw Puzzle is an extreme-level puzzle challenge featuring entirely white pieces, offering no image clues for assembly. Its minimalistic, monochrome design demands sharp attention to piece shape, subtle edge variations, and texture differences, making it ideal for puzzle enthusiasts seeking the ultimate test of patience and skill.",
+            "images": [
+                "picture/white/white1.jpg",
+                "picture/white/white2.jpg",
+                "picture/white/white3.jpg",
+                "picture/white/white4.jpg",
+                "picture/white/white5.jpg"
+            ],
+            "details": {
+                "pieces": 1000,
+                "material": "Diamond",
+                "size": "38cm x 26cm"
+            },
+            "includes": [
+                "The achievement",
+                "Key chains",
+                "Puzzle Glue"
+            ],
+            "stock": 1,
+            "category": "New Arrivals"
+        }
+    ]
+}

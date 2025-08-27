@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us-PickPuzz</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/contactUs.css">
+    <link rel="icon" type="image/x-icon" href="picture/favicon.ico">
+</head>
+
+<body>
+    <div class="header">
+        <div class="menu">
+            <img id="menuIcon" src="picture/menu.png" alt="menu" width="40px" height="40px">
+        </div>
+        <div class="logo">
+            <a href="index.html"><img id="logoIcon" src="picture/logo2c.png" alt="logo" width="145px" height="75px"></a>
+        </div>
+        <div class="navBar">
+            <a href="aboutUs.html">About Us</a>
+            <a href="allProducts.html">All Products</a>
+            <a href="customMade.html">Custom Made</a>
+            <a href="contactUs.html" class="active">Contact Us</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <div class="searchBar">
+            <img id="magGlassIcon" src="picture/magGlass.png" alt="magGlass" width="25px" height="25px">
+            <input id="search" type="text" placeholder="search for product">
+            <button id="clearSearchBtn" class="clearSearchBtn" style="display: none;">×</button>
+
+        </div>
+        <div id="cart">
+            <a href="cart.html"><img id="cartIcon" src="picture/cart.png" alt="cart" width="45px" height="45px"></a>
+        </div>
+        <div id="profile">
+            <img src="picture/profile.png" alt="profile" width="45px" height="45px">
+        </div>
+        <div class="dropdown" id="profileDropdown">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </div>
+        <div class="dropdown" id="signDropdown">
+            <a href="register.html">Sign Up</a>
+            <a href="login.html">Sign In</a>
+        </div>
+    </div>
+
+    <div class="formContainer">
+        <div class="formSection">
+            <h1>Drop us a line</h1>
+            <form>
+                <div class="formGroup">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="What's your full name?">
+                </div>
+
+                <div class="formGroup">
+                    <label for="email">Email address</label>
+                    <input type="email" id="email" name="email" placeholder="you@example.com">
+                </div>
+
+                <div class="formGroup">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Write your message for the team here"></textarea>
+                </div>
+
+                <button type="submit" class="submitBtn">Submit</button>
+            </form>
+        </div>
+
+        <div class="illustrationSection">
+            <div class="bgBlob"></div>
+            <div class="decorativeShapes">
+                <div class="shape diamond"></div>
+                <div class="shape circle"></div>
+                <div class="shape star"></div>
+                <div class="shape plus"></div>
+            </div>
+
+            <div class="character">
+                <div class="puzzle">
+                    <img src="picture/contactPic.png" alt="Puzzle" width="300px" height="300px">
+                </div>
+                <div class="pencil"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="socialMedia">
+
+        <div class="socialGroup">
+
+            <img src="picture/email2.png" alt="Email">
+            <span>Email:
+                <a href="mailto:pickpuzz@example.com">
+                    pickpuzz@example.com
+                </a>
+            </span>
+        </div>
+        <div class="socialGroup">
+
+            <img src="picture/phone2.png" alt="Phone">
+            <span>Phone:
+                <a href="tel:+60123456789">
+                    +60123456789
+                </a>
+            </span>
+        </div>
+        <div class="socialGroup">
+
+            <img src="picture/fb2.png" alt="Facebook">
+            <span>Facebook:
+                <a href="https://facebook.com">
+                    PickPuzz sdn. bhd.
+                </a>
+            </span>
+        </div>
+        <div class="socialGroup">
+            <img src="picture/ig2.png" alt="Instagram">
+            <span>Instagram:
+                <a href="https://instagram.com">
+                    @pickpuzz
+                </a>
+            </span>
+        </div>
+
+    </div>
+
+    <div class="filterCatContainer">
+
+        <div class="catSection">
+            <h1>Category</h1>
+            <ul class="catOptions">
+                <li><a href="allProducts.html">All Products</a></li>
+                <li><a href="allProducts.html?category=Accessories">Accessories</a></li>
+                <li><a href="allProducts.html?category=New Arrivals">New Arrivals</a></li>
+                <li><a href="allProducts.html?category=Christmas Special">Christmas Special</a></li>
+                <li><a href="allProducts.html?category=Snoopy is Here!">Snoopy is Here</a></li>
+                <li><a href="allProducts.html?category=Best Seller">Best Seller</a></li>
+            </ul>
+        </div>
+        <div class="filterSection">
+            <h1>Filter</h1>
+            <div class="filterSub" data-filter="material">
+                <h2>Material</h2>
+                <div class="checkboxGroup">
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="glass">
+                        <label for="glass">Glass</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="plastic">
+                        <label for="plastic">Plastic</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="steel">
+                        <label for="steel">Steel</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="cardboard">
+                        <label for="cardboard">Cardboard</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="wooden">
+                        <label for="wooden">Wooden</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="diamond">
+                        <label for="diamond">Diamond</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filterSub">
+                <h2>Price Range</h2>
+                <div class="priceInputContainer">
+                    <div class="priceInput">
+                        <div class="priceField">
+                            <span>Min</span>
+                            <input type="number" class="minInput" value="0" title="Minimum price">
+                            <label for="minInput"></label>
+
+                        </div>
+                        <div class="priceField">
+                            <span>Max</span>
+                            <input type="number" class="maxInput" value="1000" title="Maximum price">
+                            <label for="maxInput"></label>
+
+                        </div>
+                    </div>
+                    <div class="slider">
+                        <div class="priceSlider"></div>
+                    </div>
+                </div>
+
+                <div class="rangeInput">
+                    <input type="range" class="minRange" min="0" max="1000" value="0" step="1" title="Minimum price range">
+                    <label for="minRange"></label>
+
+                    <input type="range" class="maxRange" min="0" max="1000" value="1000" step="1" title="Maximum price range">
+                    <label for="maxRange"></label>
+
+                </div>
+            </div>
+
+            <div class="filterSub" data-filter="pieces">
+                <h2>Pieces</h2>
+                <div class="checkboxGroup">
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="100-500">
+                        <label for="100-500">100-500 pieces</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="500-1000">
+                        <label for="500-1000">500-1000 pieces</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="1000+">
+                        <label for="1000+">1000+ pieces</label>
+                    </div>
+                </div>
+            </div>
+            <div class="filterButtons">
+                <button id="resetFiltersBtn" class="resetBtn">Reset Filters</button>
+                <button id="applyFiltersBtn" class="applyBtn">Apply Filters</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footMain">
+            <div class="footInfo">
+                <div class="footLogo">
+                    <img id="logoIcon" src="picture/logo2c.png" alt="logo" width="165px" height="85px">
+                </div>
+                <p>Pick any Puzzle of Your Choice!</p>
+            </div>
+
+            <div class="footInfo">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="allProducts.html">All Products</a></li>
+                    <li><a href="aboutUs.html">About Us</a></li>
+                    <li><a href="contactUs.html">Contact Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footInfo">
+                <h4>Our Products</h4>
+                <ul>
+                    <li><a href="allProducts.html?category=Accessories">Accessories</a></li>
+                    <li><a href="allProducts.html?category=New Arrivals">New Arrivals</a></li>
+                    <li><a href="allProducts.html?category=Christmas Special">Christmas Special</a></li>
+                    <li><a href="allProducts.html?category=Snoopy is Here!">Snoopy is Here</a></li>
+                    <li><a href="allProducts.html?category=Best Seller">Best Seller</a></li>
+                </ul>
+            </div>
+
+            <div class="footInfo" id="contact">
+                <h4>Contact Us</h4>
+                <a href="mailto:pickpuzz@example.com"><img src="picture/email.png" alt="email" width="33px"
+                        height="23px"></a>
+                <a href="tel:+60123456789"><img src="picture/phone.png" alt="phone" width="25px" height="25px"></a>
+                <a href="https://facebook.com"><img src="picture/fb.png" alt="Facebook" width="25px" height="25px"></a>
+                <a href="https://instagram.com"><img src="picture/ig.png" alt="Instagram" width="25px"
+                        height="25px"></a>
+            </div>
+        </div>
+
+        <div class="footCopy">
+            <p>&copy; 2025 PickPuzz. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <script src="js/contactUs.js"></script>
+</body>
+
+</html>

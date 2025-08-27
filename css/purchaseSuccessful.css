@@ -1,0 +1,201 @@
+.pageTitle {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 36px;
+    color: #333;
+}
+
+.checkout-table th,
+.checkout-table td {
+    vertical-align: middle;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d97b0d;
+    margin-bottom: 15px;
+}
+
+.box-option {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 6px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.box-option:hover {
+    border-color: #f4b165;
+}
+
+.summary-box {
+    background: #fff8f0;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.btn-confirm {
+    background-color: #198754;
+    border: black;
+    font-weight: bold;
+    color: #fff;
+}
+
+.btn-confirm:hover {
+    background-color: #C4FA8F;
+}
+
+/* Table */
+table {
+    width: 85% !important;
+    margin: 50px !important;
+    margin-left: 115px !important;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+    text-align: center;
+    table-layout: fixed;
+    font-size: 20px;
+}
+
+thead tr {
+    border-radius: 12px;
+}
+
+thead th {
+    padding: 14px;
+    font-weight: bold;
+}
+
+/* Override Bootstrap table header background */
+table.table thead th {
+    background: #f8d76e !important;
+}
+
+thead th:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+thead th:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Column widths */
+thead th:nth-child(1),
+tbody td:nth-child(1) {
+    width: 400px !important;
+    /* Product column */
+}
+
+thead th,
+tbody td {
+    width: 120px;
+    /* Other columns */
+}
+
+tbody tr {
+    background: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    /* rounded corners for the whole row */
+    overflow: hidden;
+    /* keep corners clean */
+}
+
+/* Table body cells */
+tbody td {
+    padding: 12px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+tbody td:nth-child(1) {
+    text-align: center;
+    vertical-align: middle;
+}
+
+tbody td:nth-child(1) img {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+tbody td:nth-child(1) p {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 50px;
+}
+
+/* Optional: first & last cells spacing fix */
+tbody td:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+tbody td:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.form-select,
+.input-group input:not([type="radio"]) {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #000000;
+    border-radius: 10px !important;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+button {
+    border: none;
+    padding: 10px 35px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.save-btn {
+    background: #FFA739;
+    color: black;
+}
+
+
+.save-btn:hover {
+    background: #fe8c00;
+    color: white
+}
+
+.discard-btn {
+    background: rgba(128, 128, 128, 0.505);
+    color: black;
+}
+
+.discard-btn:hover {
+    background: red;
+    color: white;
+}

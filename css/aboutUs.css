@@ -1,0 +1,137 @@
+.aboutUsMain {
+    max-width: 800px; /* Limit width for better readability */
+    text-align: center; /* Center text */
+    margin: 20px auto; /* Center the section */
+    font-size: 20px;
+}
+
+p {
+  font-size: 20px;
+}
+
+.aboutUs h1 {
+    margin-bottom: 140px !important;
+    font-size: 40px;
+}
+
+.aboutUs h2 {
+    margin-bottom: 20px;
+}
+.subAboutUs {
+    display: flex;
+    margin: 20px;
+}
+
+.aboutUsText {
+    background-color: #ffdaad;
+    border-radius: 10px;
+    padding: 100px;
+    font-size: 20px;
+}
+
+/* New About Us layout */
+.au-hero {
+  max-width: 1100px;
+  margin: 40px auto 20px auto;
+  text-align: center;
+}
+
+.au-hero h1 {
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.au-hero p {
+  margin: 6px 0;
+  color: #333;
+}
+
+.au-hero-img {
+  margin-top: 80px;
+  margin-bottom: 100px;
+}
+
+.au-section {
+  max-width: 1100px;
+  margin: 20px auto 60px auto;
+}
+
+.au-section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.au-section-title h2 {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.au-title-accent {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 240px;
+  height: 20px;
+  background: #f1c27d;
+  border-radius: 6px;
+  z-index: 0;
+}
+
+.mv-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.mv-row-reverse {
+  direction: rtl;
+}
+
+.mv-row-reverse .mv-text,
+.mv-row-reverse .mv-img {
+  direction: ltr;
+}
+
+.mv-text p {
+  margin: 8px 0;
+}
+
+/* Decorative divider */
+.aboutUs hr {
+  border: 0;
+  height: 2px;
+  max-width: 1100px;
+  margin: 40px auto 60px auto;
+  background: linear-gradient(to right, transparent, #f1c27d 20%, #f1c27d 80%, transparent);
+  position: relative;
+}
+
+.aboutUs hr::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  background: #f1c27d;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(241, 194, 125, 0.25);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .mv-row {
+    grid-template-columns: 1fr;
+  }
+
+  .aboutUs hr {
+    margin: 30px auto 40px auto;
+  }
+}

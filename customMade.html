@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Made-PickPuzz</title>
+    <!-- font avesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/customMade.css">
+    <link rel="icon" type="image/x-icon" href="picture/favicon.ico">
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="menu">
+            <img id="menuIcon" src="picture/menu.png" alt="menu" width="40px" height="40px">
+        </div>
+        <div class="logo">
+            <a href="index.html"><img id="logoIcon" src="picture/logo2c.png" alt="logo" width="145px" height="75px"></a>
+        </div>
+        <div class="navBar">
+            <a href="aboutUs.html">About Us</a>
+            <a href="allProducts.html">All Products</a>
+            <a href="customMade.html">Custom Made</a>
+            <a href="contactUs.html">Contact Us</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+        <div class="searchBar">
+            <img id="magGlassIcon" src="picture/magGlass.png" alt="magGlass" width="25px" height="25px">
+            <input id="search" type="text" placeholder="search for product">
+            <button id="clearSearchBtn" class="clearSearchBtn" style="display: none;">×</button>
+        </div>
+        <div id="cart">
+            <a href="cart.html"><img id="cartIcon" src="picture/cart.png" alt="cart" width="45px" height="45px"></a>
+        </div>
+        <div id="profile">
+            <img src="picture/profile.png" alt="profile" width="45px" height="45px">
+        </div>
+        <div class="dropdown" id="profileDropdown">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="#" id="logoutBtn">Logout</a>
+        </div>
+        <div class="dropdown" id="signDropdown">
+            <a href="register.html">Sign Up</a>
+            <a href="login.html">Sign In</a>
+        </div>
+    </div>
+
+
+
+
+    <div class="mainContainer">
+        <section class="hero">
+            <div class="hero-flex">
+                <img class="hero-img" src="picture/custom/custom1.webp" alt="custom1">
+                <div class="hero-text">
+                    <h1>Custom Made Puzzles</h1>
+                    <p>Transform your precious memories, artwork, or designs into personalized jigsaw puzzles. Perfect
+                        for gifts, home décor, or creating unique experiences that bring people together.</p>
+                </div>
+                <img class="hero-img" src="picture/custom/custom2.webp" alt="custom1">
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-images"></i></div>
+                <div class="feature-content">
+                    <h3>1. Your Design, Your Story</h3>
+                    <p>Upload your photos, artwork, or designs to create truly personal puzzles that tell your unique
+                        story. From family portraits to company logos, we bring your vision to life.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-puzzle-piece"></i></div>
+                <div class="feature-content">
+                    <h3>2. Choose your Favourite Puzzle Type </h3>
+                    <p>Refer the tables below on which puzzle type you preferred</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fab fa-whatsapp"></i></div>
+                <div class="feature-content">
+                    <h3>3. Quick Contact via WhatsApp</h3>
+                    <p>Order, chat, and confirm your designs instantly through WhatsApp for fast, hassle-free service.
+                    </p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
+                <div class="feature-content">
+                    <h3>4. Easy & Secure Payment</h3>
+                    <p>Multiple payment options including online banking, cards, and e-wallets. Your transactions are
+                        safe and protected.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fas fa-print"></i></div>
+                <div class="feature-content">
+                    <h3>5. High-Quality Printing</h3>
+                    <p>State-of-the-art printing ensures sharp details, vivid colors, and a professional finish every
+                        time.</p>
+                </div>
+            </div>
+        </section>
+
+        </section>
+        <div class="tableTemplate">
+            <table class="puzzle-piece">
+                <thead>
+                  <tr>
+                    <th colspan="3">PUZZLE PIECE</th>
+                    <th colspan="1">UPLOAD PHOTO</th>
+                  </tr>
+                  <tr>
+                    <th>Pieces</th>
+                    <th>Dimension</th>
+                    <th>Price</th>
+                    <th>Photo Requirement</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Pieces">100</td>
+                    <td data-label="Dimension">30.8 x 23.8cm</td>
+                    <td data-label="Price" class="highlight">RM50</td>
+                    <td data-label="Photo">3174 x 2351px</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Pieces">250</td>
+                    <td data-label="Dimension">37.8 x 30.8cm</td>
+                    <td data-label="Price" class="highlight">RM75</td>
+                    <td data-label="Photo">3779 x 3174px</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Pieces">500</td>
+                    <td data-label="Dimension">58.8 x 37.8cm</td>
+                    <td data-label="Price" class="highlight">RM100</td>
+                    <td data-label="Photo">6465 x 3995px</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Pieces">750</td>
+                    <td data-label="Dimension">58.8 x 44.6cm</td>
+                    <td data-label="Price" class="highlight">RM150</td>
+                    <td data-label="Photo">6479 x 4830px</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Pieces">1000</td>
+                    <td data-label="Dimension">72.8 x 58.8cm</td>
+                    <td data-label="Price" class="highlight">RM200</td>
+                    <td data-label="Photo">7379 x 5830px</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Pieces">2000</td>
+                    <td data-label="Dimension">115.8 x 73.0cm</td>
+                    <td data-label="Price" class="highlight">RM250</td>
+                    <td data-label="Photo">8129 x 6460px</td>
+                  </tr>
+                </tbody>
+              </table>
+            <table class="puzzle-material">
+                <thead>
+                    <tr>
+                        <th colspan="2">PUZZLE MATERIAL</th>
+                    </tr>
+                    <tr>
+                        <th>Material</th>
+                        <th>Add Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td data-label="Material">Cardboard</td>
+                        <td data-label="Price" class="highlight">Default</td>
+                    <tr>
+                        <td data-label="Material">Wooden</td>
+                        <td data-label="Price" class="highlight">+RM50</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Material">Plastic</td>
+                        <td data-label="Price" class="highlight">+RM50</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Material">Glass</td>
+                        <td data-label="Price" class="highlight">+RM100</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Material">3D puzzle</td>
+                        <td data-label="Price" class="highlight">+RM300</td>
+                    </tr>
+                    <tr>
+                        <td data-label="Material">Diamomd</td>
+                        <td data-label="Price" class="highlight">+RM10000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <button id="orderNow" title="Order via WhatsApp">
+            <img src="picture/productDetail/whatsapp.png" alt="WhatsApp" width="40" height="40">
+            <span>Order Now</span>
+        </button>
+        
+        <!-- Share (da-share) -->
+        <div id="daShareBlock" class="da-share-html da-fb da-tw da-pi" style="margin-top: 16px;"></div>
+    </div>
+    <div class="term">
+        <h2>Term and Conditions</h2>
+        <p>1. Prices are inclusive shipping fee.</p>
+        <p>2. It may take 15-30 working days for the custom-made puzzle to be delivered. Please provide the high
+            resolution/big file size photo.</p>
+        <p>3. Please provide the high resolution/big file size photo.</p>
+        <p>4. Pictures that downloaded from internet or any source without the copyright concern from the owner are
+            strictly prohibited</p>
+        <p>5. Photos provided must be at least Imb and above. Clear/Sharp with high resolution. <br>Screenshots and
+            downloaded photo from Whatsapp are not accepted.</p>
+        <p>6. Any edited photo must be at least 150dpi, Imb and above with high resolution (less than 5mb for each file)
+        </p>
+        <p>7. Maximum three (3) times photo alteration (assisted by our side) can be made before we proceed to the
+            printing process.</p>
+        <p><strong>8. No missing pieces replacement is provided for custom made puzzle order. </strong></p>
+    </div>
+
+    <div class="note">
+        <h2>Note</h2>
+        <ul>
+            <li>The puzzle material is cardboard by default. Other material must be add on price</li>
+            <li>You may choose to receive the custom-made puzzle to be delivered in assembled or dismantled form.</li>
+            <li>You may add-on Puzzle Frame (sold separately) with choices of colors: Oak, Dark Brown, Cool Grey and
+                Rosewood.</li>
+            <li>Our sales representative will keep in touch for further order processing & updates.</li>
+        </ul>
+    </div>
+
+    <div class="filterCatContainer">
+
+        <div class="catSection">
+            <h1>Category</h1>
+            <ul class="catOptions">
+                <li><a href="allProducts.html">All Products</a></li>
+                <li><a href="allProducts.html?category=Accessories">Accessories</a></li>
+                <li><a href="allProducts.html?category=New Arrivals">New Arrivals</a></li>
+                <li><a href="allProducts.html?category=Christmas Special">Christmas Special</a></li>
+                <li><a href="allProducts.html?category=Snoopy is Here!">Snoopy is Here</a></li>
+                <li><a href="allProducts.html?category=Best Seller">Best Seller</a></li>
+            </ul>
+        </div>
+        <div class="filterSection">
+            <h1>Filter</h1>
+            <div class="filterSub" data-filter="material">
+                <h2>Material</h2>
+                <div class="checkboxGroup">
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="glass">
+                        <label for="glass">Glass</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="plastic">
+                        <label for="plastic">Plastic</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="steel">
+                        <label for="steel">Steel</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="cardboard">
+                        <label for="cardboard">Cardboard</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="wooden">
+                        <label for="wooden">Wooden</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="diamond">
+                        <label for="diamond">Diamond</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filterSub">
+                <h2>Price Range</h2>
+                <div class="priceInputContainer">
+                    <div class="priceInput">
+                        <div class="priceField">
+                            <span>Min</span>
+                            <input type="number" class="minInput" value="0" title="Minimum price">
+                            <label for="minInput"></label>
+
+                        </div>
+                        <div class="priceField">
+                            <span>Max</span>
+                            <input type="number" class="maxInput" value="1000" title="Maximum price">
+                            <label for="maxInput"></label>
+
+                        </div>
+                    </div>
+                    <div class="slider">
+                        <div class="priceSlider"></div>
+                    </div>
+                </div>
+
+                <div class="rangeInput">
+                    <input type="range" class="minRange" min="0" max="1000" value="0" step="1" title="Minimum price range">
+                    <label for="minRange"></label>
+
+                    <input type="range" class="maxRange" min="0" max="1000" value="1000" step="1" title="Maximum price range">
+                    <label for="maxRange"></label>
+
+                </div>
+            </div>
+
+            <div class="filterSub" data-filter="pieces">
+                <h2>Pieces</h2>
+                <div class="checkboxGroup">
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="100-500">
+                        <label for="100-500">100-500 pieces</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="500-1000">
+                        <label for="500-1000">500-1000 pieces</label>
+                    </div>
+                    <div class="checkboxOption">
+                        <input type="checkbox" id="1000+">
+                        <label for="1000+">1000+ pieces</label>
+                    </div>
+                </div>
+            </div>
+            <div class="filterButtons">
+                <button id="resetFiltersBtn" class="resetBtn">Reset Filters</button>
+                <button id="applyFiltersBtn" class="applyBtn">Apply Filters</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="overlay"></div>
+    <footer>
+        <div class="footMain">
+            <div class="footInfo">
+                <div class="footLogo">
+                    <img id="logoIcon" src="picture/logo2c.png" alt="logo" width="165px" height="85px">
+                </div>
+                <p>Pick any Puzzle of Your Choice!</p>
+            </div>
+
+            <div class="footInfo">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="allProduct.html">All Products</a></li>
+                    <li><a href="aboutUs.html">About Us</a></li>
+                    <li><a href="contactUs.html">Contact Us</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footInfo">
+                <h4>Our Products</h4>
+                <ul>
+                    <li><a href="allProducts.html?category=Accessories">Accessories</a></li>
+                    <li><a href="allProducts.html?category=New Arrivals">New Arrivals</a></li>
+                    <li><a href="allProducts.html?category=Christmas Special">Christmas Special</a></li>
+                    <li><a href="allProducts.html?category=Snoopy is Here!">Snoopy is Here</a></li>
+                    <li><a href="allProducts.html?category=Best Seller">Best Seller</a></li>
+
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footInfo" id="contact">
+                <h4>Contact Us</h4>
+                <a href="mailto:pickpuzz@example.com"><img src="picture/email.png" alt="email" width="33px"
+                        height="23px"></a>
+                <a href="mailto:pickpuzz@example.com"><img src="picture/phone.png" alt="phone" width="25px"
+                        height="25px"></a>
+                <a href="https://facebook.com"><img src="picture/fb.png" alt="Facebook" width="25px" height="25px"></a>
+                <a href="https://instagram.com"><img src="picture/ig.png" alt="Instagram" width="25px"
+                        height="25px"></a>
+            </div>
+        </div>
+
+        <div class="footCopy">
+            <p>&copy; 2025 PickPuzz. All rights reserved.</p>
+        </div>
+
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <!-- da-share plugin (place file at js/jquery.da-share.js) -->
+    <script src="js/jquery.da-share.js"></script>
+    <script src="js/customMade.js"></script>
+</body>
+
+</html>

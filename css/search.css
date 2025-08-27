@@ -1,0 +1,117 @@
+/* Inherit the same grid styles as categories */
+#resultsContainer {
+    position: relative;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Search grid same as category grid */
+#resultsContainer .category-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+}
+
+#resultsContainer .product-card {
+    flex: 1 1 200px;
+    max-width: 250px;
+}
+
+/* Header for search results */
+#resultsContainer .search-header {
+    width:100%;
+    display: block;
+    text-align: left; 
+    font-size: 40px;
+    font-weight: bold;
+    color: #000000; 
+    margin: 20px 0;
+}
+
+.searchHighlight{
+    color: rgb(255, 115, 0);
+}
+
+/* Filter details styling */
+#resultsContainer .search-header small {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #666;
+    font-weight: normal;
+    line-height: 1.4;
+}
+
+#resultsContainer .search-header small .filter-item {
+    display: inline-block;
+    background-color: #f5f5f5;
+    padding: 4px 8px;
+    margin: 2px 4px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 0.9em;
+}
+
+/* Removable filter styling */
+.removable-filter {
+    transition: all 0.3s ease;
+    position: relative;
+    padding-right: 20px !important;
+}
+
+.removable-filter:hover {
+    background-color: #f5f5f5;
+    border-color: #ddd;
+}
+
+/* Remove button styling */
+.remove-filter {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fca2a2;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.remove-filter:hover {
+    color: #dc3545;
+}
+
+#clearFiltersBtn{
+    margin-top:15px; 
+    padding:10px 20px; 
+    font-size:16px; 
+    border:none; 
+    border-radius:6px; 
+    background:#007BFF; 
+    color:#fff; 
+    cursor:pointer;
+}
+#clearFiltersBtn:hover{
+    background:#0056b3; 
+}
+
+footer{
+    margin-top: 185px;
+}
+
+/* Responsive header */
+@media (max-width: 768px) {
+    #resultsContainer .search-header {
+        font-size: 28px;
+    }
+    
+    #resultsContainer .search-header small {
+        font-size: 0.7em;
+    }
+}
