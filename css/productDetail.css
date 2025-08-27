@@ -23,7 +23,7 @@
     /*ensure container have full viewport height*/
     position: relative;
     /*fix child position*/
-    background-color: #ffffff;
+    background-color: #f9f2ea;
     padding: 25px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
@@ -32,7 +32,7 @@
 }
 
 .product-container-2 {
-    background-color: #f7f1f1;
+    background-color: #f5e7d7;
     display: flex;
     flex: 1;
     min-height: 0;

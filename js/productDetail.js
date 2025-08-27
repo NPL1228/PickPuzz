@@ -342,7 +342,7 @@ document.querySelector('.add-to-cart').addEventListener('click', function () {
     window.location.reload();
 });
 
-// Checkout button: add to cart then go to checkout
+// Checkout button: direct checkout (do not rely on full cart)
 document.querySelector('.checkout').addEventListener('click', function () {
     if(!user) {
         alert("Please login before checkout!");
@@ -367,27 +367,18 @@ document.querySelector('.checkout').addEventListener('click', function () {
         return;
     }
 
-    let cart = user.cart || [];
-    const existingItem = cart.find(item => item.id === product.id);
-    if (existingItem) {
-        existingItem.qty += qty;
-        if (existingItem.qty > currentStock) {
-            existingItem.qty = currentStock;
-            showAlert('warning', `Only ${currentStock} items available. Quantity adjusted.`);
-        }
-    } else {
-        cart.push({
+    // Store direct-checkout item in session only
+    try {
+        const directItem = {
             id: product.id,
             name: product.name,
             price: product.price,
             qty: qty,
             img: product.images[0]
-        });
-    }
+        };
+        sessionStorage.setItem('directCheckoutItem', JSON.stringify(directItem));
+    } catch (e) {}
 
-    // Persist and navigate to checkout
-    user.cart = cart;
-    localStorage.setItem('users', JSON.stringify(users));
-    alert("Proceed to checkout!");
+    // Navigate to checkout
     window.location.href = 'checkout.html';
 });

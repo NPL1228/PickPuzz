@@ -45,7 +45,28 @@ function fetchData() {
     fetchBanksCard();
     fetchAddresses();
     renderPurchases();
+
+    // Activate section based on hash (e.g., #purchasesSection)
+    activateSectionFromHash();
 }
+
+function activateSectionFromHash() {
+    const hash = window.location.hash || '#profileSection';
+    const link = document.querySelector(`.nav-pills a[href="${hash}"]`);
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    // Deactivate all
+    document.querySelectorAll('.nav-pills a').forEach(l => l.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+
+    // Activate matching
+    if (link) link.classList.add('active');
+    target.classList.add('active');
+}
+
+// Respond to hash changes
+window.addEventListener('hashchange', activateSectionFromHash);
 
 let users = JSON.parse(localStorage.getItem("users")) || [];
 const loggedInEmail = getCookie("loggedInUser") || sessionStorage.getItem("loggedInUser");
@@ -67,7 +88,7 @@ function fetchProfile() {
     if (!user.email) user.email = loggedInEmail || '';
     if (!user.countryCode) user.countryCode = '+60';
     if (!user.phone) user.phone = '';
-    if (!user.gender) user.gender = 'male';
+    if (!user.gender) user.gender = 'Male';
     if (!user.dob) user.dob = '';
 
     // Save back updated users array
@@ -220,6 +241,12 @@ function renderPurchases() {
                 </div>
             `;
 
+            // Click to open full order details popup
+            orderItem.style.cursor = 'pointer';
+            orderItem.addEventListener('click', () => {
+                showPurchaseInfo(order);
+            });
+
             list.appendChild(orderItem);
         });
 }
@@ -237,6 +264,15 @@ function loadBankCardForm(index = -1) {
 
         });
         accountNumberInput.hasListener = true; // prevent double-binding
+    }
+
+    // expiry date input formatter (MM/YY)
+    const expiryInputField = document.getElementById("expiryDate");
+    if (expiryInputField && !expiryInputField.hasListener) {
+        expiryInputField.addEventListener("input", function () {
+            formatDateMY(this);
+        });
+        expiryInputField.hasListener = true; // prevent double-binding
     }
 
     if (index >= 0 && index < bankCards.length) {
@@ -338,6 +374,15 @@ function showBankCardInfo(index) {
             `;
 
     document.getElementById('detailsTitle').textContent = 'Bank Card Details';
+    // Remove purchase title style if previously applied
+    const titleEl1 = document.getElementById('detailsTitle');
+    if (titleEl1) titleEl1.classList.remove('purchase-title');
+
+    // Show action buttons for editable entity
+    const editBtn = document.getElementById('popupEditBtn');
+    const removeBtn = document.getElementById('popupRemoveBtn');
+    if (editBtn) editBtn.style.display = '';
+    if (removeBtn) removeBtn.style.display = '';
 
     // Set up the edit and remove buttons
     document.getElementById('popupEditBtn').onclick = function () {
@@ -515,6 +560,15 @@ function showAddressInfo(index) {
             `;
 
     document.getElementById('detailsTitle').textContent = 'Address Details';
+    // Remove purchase title style if previously applied
+    const titleEl2 = document.getElementById('detailsTitle');
+    if (titleEl2) titleEl2.classList.remove('purchase-title');
+
+    // Show action buttons for editable entity
+    const editBtn = document.getElementById('popupEditBtn');
+    const removeBtn = document.getElementById('popupRemoveBtn');
+    if (editBtn) editBtn.style.display = '';
+    if (removeBtn) removeBtn.style.display = '';
 
     // Set up the edit and remove buttons
     document.getElementById('popupEditBtn').onclick = function () {
@@ -528,6 +582,71 @@ function showAddressInfo(index) {
     };
 
     // Show the popup
+    document.getElementById('popupDetailsOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Show full order details including all purchased items
+function showPurchaseInfo(order) {
+    if (!order) return;
+
+    const popupDetails = document.getElementById('popupDetails');
+    const createdAt = order.createdAt ? new Date(order.createdAt) : new Date();
+    const headerHtml = `
+        <div class="mb-3">
+            <div><strong>Order ID:</strong> ${order.id || ''}</div>
+            <div class="text-muted small">${createdAt.toLocaleString()}</div>
+            <div class="mt-1"><strong>Shipping:</strong> ${order.shippingMethod || ''}</div>
+            <div><strong>Payment:</strong> ${order.paymentMethod || ''}</div>
+        </div>
+    `;
+
+    const items = Array.isArray(order.items) ? order.items : [];
+    const itemsHtml = items.map(it => {
+        const lineTotal = (Number(it.price) || 0) * (Number(it.qty) || 0);
+        return `
+            <div class="d-flex align-items-center justify-content-between mb-2">
+                <div class="d-flex align-items-center">
+                    <img src="${it.img || ''}" alt="product" width="50" height="50" style="object-fit:cover;border-radius:6px;">
+                    <div class="ms-2">
+                        <div class="fw-semibold">${it.name || ''}</div>
+                        <div class="text-muted small">RM ${(Number(it.price) || 0).toFixed(2)} × ${it.qty || 0}</div>
+                    </div>
+                </div>
+                <div class="fw-semibold">RM ${lineTotal.toFixed(2)}</div>
+            </div>
+        `;
+    }).join('');
+
+    const subtotal = Number(order.productTotal) || items.reduce((s, it) => s + (Number(it.price) || 0) * (Number(it.qty) || 0), 0);
+    const shipping = Number(order.shipping) || 0;
+    const total = Number(order.total) || (subtotal + shipping);
+
+    const summaryHtml = `
+        <div class="purchase-summary mt-2 p-3 rounded-3">
+            <div class="d-flex justify-content-between mb-1"><span>Product Price:</span><span class="fw-bold">RM ${subtotal.toFixed(2)}</span></div>
+            <div class="d-flex justify-content-between mb-2"><span>Shipping Fee:</span><span class="fw-bold">RM ${shipping.toFixed(2)}</span></div>
+            <div class="d-flex justify-content-between"><span class="fs-6">Total:</span><span class="fs-6 fw-bold text-danger">RM ${total.toFixed(2)}</span></div>
+        </div>
+    `;
+
+    // Wrap header + items as one colored block
+    const bodyHtml = `<div class="purchase-body p-3 rounded-3 mb-2">${headerHtml}${itemsHtml}</div>`;
+    const separatorHtml = `<hr class="purchase-separator">`;
+
+    popupDetails.innerHTML = bodyHtml + separatorHtml + summaryHtml;
+    const titleEl = document.getElementById('detailsTitle');
+    if (titleEl) {
+        titleEl.textContent = 'Purchase Details';
+        titleEl.classList.add('purchase-title');
+    }
+
+    // Hide edit/remove for purchases (not editable)
+    const editBtn = document.getElementById('popupEditBtn');
+    const removeBtn = document.getElementById('popupRemoveBtn');
+    if (editBtn) editBtn.style.display = 'none';
+    if (removeBtn) removeBtn.style.display = 'none';
+
     document.getElementById('popupDetailsOverlay').classList.add('active');
     document.body.style.overflow = 'hidden';
 }

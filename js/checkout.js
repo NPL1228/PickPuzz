@@ -47,7 +47,19 @@ if (user) {
   localStorage.setItem('users', JSON.stringify(users));
 }
 
-let products = user ? user.cart || [] : [];
+// Prefer a direct-checkout item from session, otherwise use full cart
+let directItem = null;
+try {
+  const raw = sessionStorage.getItem('directCheckoutItem');
+  if (raw) directItem = JSON.parse(raw);
+} catch (e) { directItem = null; }
+
+let products = [];
+if (directItem) {
+  products = [directItem];
+} else {
+  products = user ? user.cart || [] : [];
+}
 
 const checkoutTable = document.getElementById("checkoutTable");
 const checkoutBody = document.getElementById("checkoutBody");
@@ -262,6 +274,13 @@ function attachCheckoutInputFormatters() {
   // CVV numeric max 3
   const cvvInput = document.getElementById('cvv');
   if (cvvInput && !cvvInput.hasListener) {
+    // Improve UX and security: mask and restrict
+    cvvInput.setAttribute('type', 'password');
+    cvvInput.setAttribute('maxlength', '3');
+    cvvInput.setAttribute('inputmode', 'numeric');
+    cvvInput.setAttribute('autocomplete', 'cc-csc');
+    cvvInput.setAttribute('pattern', '\\d{3}');
+    cvvInput.setAttribute('title', 'Enter 3-digit CVV');
     cvvInput.addEventListener('input', function () {
       this.value = this.value.replace(/\D/g, '');
       if (this.value.length > 3) {
@@ -269,6 +288,21 @@ function attachCheckoutInputFormatters() {
       }
     });
     cvvInput.hasListener = true;
+  }
+
+  // Expiry date MM/YY formatter
+  const expiryInput = document.getElementById('expiryDate');
+  if (expiryInput && !expiryInput.hasListener) {
+    expiryInput.setAttribute('inputmode', 'numeric');
+    expiryInput.setAttribute('maxlength', '5');
+    expiryInput.setAttribute('placeholder', 'MM/YY');
+    expiryInput.setAttribute('autocomplete', 'cc-exp');
+    expiryInput.setAttribute('pattern', '\\d{2}/\\d{2}');
+    expiryInput.setAttribute('title', 'Enter expiry as MM/YY');
+    expiryInput.addEventListener('input', function () {
+      formatDateMY(this);
+    });
+    expiryInput.hasListener = true;
   }
 }
 
@@ -337,12 +371,18 @@ document.querySelectorAll(".btn-confirm").forEach(btn => {
         if (!Array.isArray(user.purchases)) user.purchases = [];
         user.purchases.push(order);
       }
-
-      // Clear cart for current user
-      if (user && Array.isArray(user.cart)) {
-        user.cart = [];
-      }
+      // Always persist user updates (including purchases) regardless of checkout path
       localStorage.setItem('users', JSON.stringify(users));
+
+      // If this is a direct checkout, do NOT clear full cart; otherwise clear cart
+      if (directItem) {
+        try { sessionStorage.removeItem('directCheckoutItem'); } catch (e) {}
+      } else {
+        if (user && Array.isArray(user.cart)) {
+          user.cart = [];
+        }
+        localStorage.setItem('users', JSON.stringify(users));
+      }
 
       // Redirect to success page
       window.location.href = 'purchaseSuccess.html';

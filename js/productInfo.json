@@ -46,46 +46,6 @@
             "category": "Accessories"
         },
         {
-            "id": "access1",
-            "name": "Puzzle Sorter",
-            "price": 50.00,
-            "description": "Easy sorting - sort puzzle pieces by color. Efficient organization - combine containers to save space and organize stacking space. Convenient storage and carrying - a matching box will allow you to easily store and carry containers with sorted puzzles.",
-            "images": [
-                "picture/access1/access1-1.png",
-                "picture/access1/access1-2.png"
-            ],
-            "details": {
-                "pieces": "-",
-                "material": "Plastic",
-                "size": "19cm x 19cm"
-            },
-            "includes": [
-                "6 containers"
-            ],
-            "stock": 100,
-            "category": "Accessories"
-        },
-        {
-            "id": "access1",
-            "name": "Puzzle Sorter",
-            "price": 50.00,
-            "description": "Easy sorting - sort puzzle pieces by color. Efficient organization - combine containers to save space and organize stacking space. Convenient storage and carrying - a matching box will allow you to easily store and carry containers with sorted puzzles.",
-            "images": [
-                "picture/access1/access1-1.png",
-                "picture/access1/access1-2.png"
-            ],
-            "details": {
-                "pieces": "-",
-                "material": "Plastic",
-                "size": "19cm x 19cm"
-            },
-            "includes": [
-                "6 containers"
-            ],
-            "stock": 100,
-            "category": "Accessories"
-        },
-        {
             "id": "access2",
             "name": "Puzzle Storage ",
             "price": 200.00,
@@ -104,6 +64,91 @@
                 "12 slots"
             ],
             "stock": 88,
+            "category": "Accessories"
+        },
+        {
+            "id": "access3",
+            "name": "Oak Puzzle Frame",
+            "price": 30.00,
+            "description": "Elegant oak puzzle frame crafted with a natural wood finish, perfect for displaying your completed puzzles in style.",
+            "images": [
+                "picture/access3/oakFrame1.avif",
+                "picture/access3/oakFrame2.avif",
+                "picture/access3/oakFrame3.avif",
+                "picture/access3/oakFrame4.avif"
+            ],
+            "details": {
+                "pieces": "-",
+                "material": "Wood",
+                "size": "30cm x 40cm"
+            },
+            "includes": [
+                "Toolkit"
+            ],
+            "stock": 180,
+            "category": "Accessories"
+        },
+        {
+            "id": "access4",
+            "name": "Dark Brown Puzzle Frame",
+            "price": 20.00,
+            "description": "Elegant dark brown puzzle frame crafted with a natural wood finish, perfect for displaying your completed puzzles in style.",
+            "images": [
+                "picture/access4/dbFrame2.webp",
+                "picture/access4/dbFrame1.webp",
+                "picture/access4/dbFrame3.webp"
+            ],
+            "details": {
+                "pieces": "-",
+                "material": "Wood",
+                "size": "66cm x 44cm"
+            },
+            "includes": [
+                "Toolkit"
+            ],
+            "stock": 180,
+            "category": "Accessories"
+        },
+        {
+            "id": "access5",
+            "name": "Cool Gray Frame ",
+            "price": 60.00,
+            "description": "This is a cool gray puzzle storage rack with multiple horizontal slots, designed to neatly organize and store flat puzzles. It keeps puzzles easily accessible, prevents pieces from getting lost, and saves space in classrooms or playrooms.",
+            "images": [
+                "picture/access5/grayFrame1.webp",
+                "picture/access5/grayFrame2.jpg"
+            ],
+            "details": {
+                "pieces": "-",
+                "material": "Wood",
+                "size": "60cm x 40cm"
+            },
+            "includes": [
+                "Toolkit"
+            ],
+            "stock": 188,
+            "category": "Accessories"
+        },
+        {
+            "id": "access6",
+            "name": "RoseWood Puzzle Frame ",
+            "price": 100.00,
+            "description": "Rosewood puzzle frame with an elegant design, perfect for showcasing completed puzzles.",
+            "images": [
+                "picture/access6/rosewood1.jpg",
+                "picture/access6/rosewood2.jpg",
+                "picture/access6/rosewood3.jpg",
+                "picture/access6/rosewood4.jpg"
+            ],
+            "details": {
+                "pieces": "-",
+                "material": "Wood",
+                "size": "100cm x 40cm"
+            },
+            "includes": [
+                "Toolkit"
+            ],
+            "stock": 158,
             "category": "Accessories"
         },
         {

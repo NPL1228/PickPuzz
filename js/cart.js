@@ -12,6 +12,8 @@ function getCookie(name) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Ensure direct checkout flag is cleared when coming from cart
+  try { sessionStorage.removeItem('directCheckoutItem'); } catch (e) {}
 
   let users = JSON.parse(localStorage.getItem("users")) || [];
   const loggedInEmail = getCookie("loggedInUser") || sessionStorage.getItem("loggedInUser");
@@ -175,6 +177,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Checkout
   document.getElementById("checkoutBtn").addEventListener("click", function () {
+    // Explicitly clear any direct-checkout item so checkout uses full cart
+    try { sessionStorage.removeItem('directCheckoutItem'); } catch (e) {}
     if (products.length === 0) {
       alert("Your cart is empty!");
     } else {
