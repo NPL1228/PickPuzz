@@ -42,11 +42,12 @@
     border: black;
     font-weight: bold;
     color: #fff;
-}
-
-.btn-confirm:hover {
-    background-color: #C4FA8F;
-}
+  }
+  
+  .btn-confirm:hover {
+    color: white;
+    background-color: #20a467;
+  }
 
 /* Table */
 table {

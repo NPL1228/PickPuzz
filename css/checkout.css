@@ -45,7 +45,8 @@
 }
 
 .btn-confirm:hover {
-  background-color: #C4FA8F;
+  color: white;
+  background-color: #20a467;
 }
 
 /* Table */
@@ -140,6 +141,22 @@ tbody td:last-child {
   border-bottom-right-radius: 12px;
 }
 
+/* Product cell */
+.product {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start;
+  margin-left: 60px;
+}
+
+.product img {
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
 .input-group {
   margin-bottom: 20px;
 }
@@ -215,4 +232,23 @@ button {
 #headingCard1 button,
 #headingCard2 button {
   padding-left: 40px !important;
+}
+
+/* Remove blue color/background when accordion header is active and its focus ring */
+.accordion {
+  /* Bootstrap 5 variables override */
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-active-color: inherit;
+  --bs-accordion-btn-focus-box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: transparent !important;
+  color: inherit !important;
+  box-shadow: none !important;
+}
+
+.accordion-button:focus {
+  box-shadow: none !important;
+  border-color: transparent !important;
 }

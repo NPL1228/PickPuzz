@@ -120,20 +120,19 @@ menuBtn.addEventListener("click", () => {
 overlay.addEventListener("click", () => {
   filterContainer.classList.remove("show");
   overlay.classList.remove("show");
-  redirectWithPrice(currentFilters.min, currentFilters.max);
 });
 
 // --- REDIRECT HELPER ---
 function redirectWithPrice(min, max) {
   let params = new URLSearchParams();
-  
+
   // Preserve existing search query if present
   const currentSearchQuery = new URLSearchParams(window.location.search).get("q");
   if (currentSearchQuery) {
     params.set("q", currentSearchQuery);
     console.log("Preserving search query:", currentSearchQuery);
   }
-  
+
   params.set("min", min);
   params.set("max", max);
 
@@ -146,7 +145,7 @@ function redirectWithPrice(min, max) {
   }
 
   console.log("Redirecting with params:", params.toString());
-  
+
   // redirect
   window.location.href = "search.html?" + params.toString();
 }
@@ -250,6 +249,18 @@ function resetAllFilters() {
   console.log("All filters have been reset to default values");
 }
 
+const magIcon = document.getElementById("magGlassIcon");
+magIcon.addEventListener("click", () => {
+  const search = document.getElementById("search");
+  const query = search.value.trim();
+  
+  if (query) {
+    window.location.href = "search.html?q=" + encodeURIComponent(query);
+  } else {
+    search.focus();
+  }
+});
+
 //searchbar 
 $("#search").on("keydown", function (e) {
   const isEnter = e.key === "Enter" || e.which === 13;
@@ -266,10 +277,10 @@ $("#search").on("keydown", function (e) {
 });
 
 // Handle search input changes to show/hide clear button
-$("#search").on("input", function() {
+$("#search").on("input", function () {
   const query = $(this).val().trim();
   const clearBtn = document.getElementById("clearSearchBtn");
-  
+
   if (clearBtn) {
     if (query) {
       clearBtn.style.display = "flex";
@@ -291,10 +302,10 @@ if (clearSearchBtn) {
 function clearSearch() {
   // Get current URL parameters
   const urlParams = new URLSearchParams(window.location.search);
-  
+
   // Remove search query but keep other parameters (filters)
   urlParams.delete("q");
-  
+
   // Redirect to search page with remaining parameters
   const newUrl = urlParams.toString() ? `search.html?${urlParams.toString()}` : "search.html";
   window.location.href = newUrl;
@@ -304,17 +315,17 @@ function clearSearch() {
 function updateSearchBar() {
   const searchInput = document.getElementById("search");
   const clearBtn = document.getElementById("clearSearchBtn");
-  
+
   if (!searchInput || !clearBtn) return;
-  
+
   // Get current search query from URL
   const urlParams = new URLSearchParams(window.location.search);
   const currentQuery = urlParams.get("q");
-  
+
   if (currentQuery) {
     // Show current search query in search bar
     searchInput.value = currentQuery;
-    
+
     // Show clear button
     clearBtn.style.display = "flex";
   } else {
@@ -327,7 +338,7 @@ function updateSearchBar() {
 document.addEventListener("DOMContentLoaded", () => {
   // Update search bar with current query
   updateSearchBar();
-  
+
   // Initialize filters and attach listeners
   updateCurrentFilters();
   attachMaterialCheckboxListeners();
@@ -369,4 +380,46 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "login.html";
     });
   }
+
+  // Ensure Google Translate element exists and script loaded (idempotent)
+  ensureGoogleTranslateElement();
+  loadGoogleTranslateScript();
 });
+
+// ---- Google Translate integration ----
+function ensureGoogleTranslateElement() {
+  const footer = document.querySelector('footer');
+  if (!footer) return;
+
+  if (!document.getElementById('google_translate_element')) {
+    const el = document.createElement('div');
+    el.id = 'google_translate_element';
+    footer.appendChild(el);
+  }
+}
+
+function loadGoogleTranslateScript() {
+  console.log("Loading Google Translate script");
+  // If already initialized by inline script or previous call, skip
+  // if (window.google && window.google.translate && document.getElementById('google_translate_element')) {
+  //   console.log("Google Translate already initialized");
+  //   return;
+  // }
+  if (document.getElementById('google_translate_script')) return;
+
+  // Provide global init callback
+  window.googleTranslateElementInit = function () {
+    try {
+      new google.translate.TranslateElement
+        ({
+          pageLanguage: 'en', autoDisplay:
+            false, includedLanguages: 'en,fr,es,zh-CN,ja,ms,ur,hi', gaTrack: true, gaId: 'key here'
+        }, 'google_translate_element');
+    } catch (_) { }
+  };
+
+  const s = document.createElement('script');
+  s.id = 'google_translate_script';
+  s.src = "https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+  document.body.appendChild(s);
+}

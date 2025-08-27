@@ -78,8 +78,10 @@ function renderCheckout() {
     console.log("row1: ", row.getAttribute("data-id"));
     row.innerHTML = `
             <td>
-              <img src="${p.img}" alt="product" width="100" height="100">
-              <p>${p.name}</p>
+              <div class="product">
+                <img src="${p.img}" alt="product" width="100" height="100">
+                <p>${p.name}</p>
+              </div>
             </td>
             <td>RM ${p.price}</td>
             <td>
@@ -376,7 +378,7 @@ document.querySelectorAll(".btn-confirm").forEach(btn => {
 
       // If this is a direct checkout, do NOT clear full cart; otherwise clear cart
       if (directItem) {
-        try { sessionStorage.removeItem('directCheckoutItem'); } catch (e) {}
+        try { sessionStorage.removeItem('directCheckoutItem'); } catch (e) { }
       } else {
         if (user && Array.isArray(user.cart)) {
           user.cart = [];

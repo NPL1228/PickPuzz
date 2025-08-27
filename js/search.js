@@ -198,7 +198,7 @@ async function renderSearchResults(params, containerId = 'resultsContainer') {
         noResultMsg += `
             <br>
             <button id="clearFiltersBtn">
-                Clear Filters
+                Back to Home
             </button>
         `;
     
@@ -210,7 +210,7 @@ async function renderSearchResults(params, containerId = 'resultsContainer') {
         const clearBtn = document.getElementById("clearFiltersBtn");
         if (clearBtn) {
             clearBtn.addEventListener("click", () => {
-                window.location.href = "search.html"; // reset back to default search page
+                window.location.href = "index.html"; // reset back to default search page
             });
         }
     
