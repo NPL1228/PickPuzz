@@ -32,6 +32,12 @@ window.loadProduct = function(productId) {
         img.src = image;
         img.alt = product.name;
         img.loading = 'lazy'; // Add lazy loading
+        
+        // Add click event for image enlargement
+        img.addEventListener('click', function() {
+            openImageModal(this.src, this.alt);
+        });
+        
         productImagesContainer.appendChild(img);
     });
 
@@ -381,4 +387,44 @@ document.querySelector('.checkout').addEventListener('click', function () {
 
     // Navigate to checkout
     window.location.href = 'checkout.html';
+});
+
+// Image modal functionality
+function openImageModal(imageSrc, imageAlt) {
+    const modal = document.getElementById('imageModal');
+    const enlargedImg = document.getElementById('enlargedImage');
+    
+    enlargedImg.src = imageSrc;
+    enlargedImg.alt = imageAlt;
+    modal.classList.add('show');
+    
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = 'hidden';
+}
+
+function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    modal.classList.remove('show');
+    
+    // Restore body scroll
+    document.body.style.overflow = 'auto';
+}
+
+// Close modal when clicking on the overlay or the image itself
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('imageModal');
+    const enlargedImg = document.getElementById('enlargedImage');
+    
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal || e.target === enlargedImg) {
+            closeImageModal();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeImageModal();
+        }
+    });
 });

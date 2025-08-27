@@ -496,3 +496,52 @@
 .related-arrow:hover {
     background-color: #e9ecef;
 }
+
+/* Image zoom functionality */
+.product-container-2-left img {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.product-container-2-left img:hover {
+    transform: scale(1.02);
+}
+
+/* Modal overlay for enlarged image */
+.image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    cursor: pointer;
+}
+
+.image-modal.show {
+    display: flex;
+}
+
+.image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
