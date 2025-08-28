@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
             password: password,
             countryCode: "+60",
             phone: "",
-            gender: "male",
+            gender: "Male",
             dob: "",
             // arrays for addresses & cards
             addresses: [],

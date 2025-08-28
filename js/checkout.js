@@ -47,16 +47,26 @@ if (user) {
   localStorage.setItem('users', JSON.stringify(users));
 }
 
-// Prefer a direct-checkout item from session, otherwise use full cart
+// Prefer a direct-checkout item from session, otherwise use partial cart, otherwise use full cart
 let directItem = null;
+let partialCart = null;
 try {
   const raw = sessionStorage.getItem('directCheckoutItem');
   if (raw) directItem = JSON.parse(raw);
-} catch (e) { directItem = null; }
+  
+  // Check for partial cart from cart page
+  const partialRaw = sessionStorage.getItem('partialCart');
+  if (partialRaw) partialCart = JSON.parse(partialRaw);
+} catch (e) { 
+  directItem = null; 
+  partialCart = null;
+}
 
 let products = [];
 if (directItem) {
   products = [directItem];
+} else if (partialCart && partialCart.length > 0) {
+  products = partialCart;
 } else {
   products = user ? user.cart || [] : [];
 }
@@ -384,6 +394,15 @@ document.querySelectorAll(".btn-confirm").forEach(btn => {
       // If this is a direct checkout, do NOT clear full cart; otherwise clear cart
       if (directItem) {
         try { sessionStorage.removeItem('directCheckoutItem'); } catch (e) { }
+      } else if (partialCart && partialCart.length > 0) {
+        // Remove only the items that were in partial cart from the full cart
+        if (user && Array.isArray(user.cart)) {
+          const partialCartIds = partialCart.map(item => item.id);
+          user.cart = user.cart.filter(item => !partialCartIds.includes(item.id));
+          localStorage.setItem('users', JSON.stringify(users));
+        }
+        // Clear partial cart from session storage
+        try { sessionStorage.removeItem('partialCart'); } catch (e) { }
       } else {
         if (user && Array.isArray(user.cart)) {
           user.cart = [];

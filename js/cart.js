@@ -13,7 +13,7 @@ function getCookie(name) {
 
 document.addEventListener("DOMContentLoaded", function () {
   // Ensure direct checkout flag is cleared when coming from cart
-  try { sessionStorage.removeItem('directCheckoutItem'); } catch (e) {}
+  try { sessionStorage.removeItem('directCheckoutItem'); } catch (e) { }
 
   let users = JSON.parse(localStorage.getItem("users")) || [];
   const loggedInEmail = getCookie("loggedInUser") || sessionStorage.getItem("loggedInUser");
@@ -23,11 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
     window.location.href = "login.html"; // Redirect to login page
   }
 
-
   // Find current logged-in user
   let user = users.find(u => u.email === loggedInEmail);
 
   let products = user ? user.cart || [] : [];
+
+  // Initialize partial cart for selected items
+  let partialCart = [];
 
   const cartBody = document.getElementById("cartBody");
   const emptyCartBox = document.querySelector(".emptyCartBox");
@@ -35,6 +37,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const selectAll = document.getElementById("selectAll");
   const cartTable = document.getElementById("cartTable");
   const cartFooter = document.getElementById("cartFooter");
+
+  // Function to update partial cart based on checked items
+  function updatePartialCart() {
+    partialCart = [];
+    document.querySelectorAll(".item-check:checked").forEach((cb) => {
+      const id = cb.closest("tr").getAttribute("data-id");
+      const item = products.find((p) => p.id === id);
+      if (item) {
+        partialCart.push(item);
+      }
+    });
+    updateTotalDisplay();
+  }
+
+  // Function to update total display (shows partial cart total if items selected, otherwise 0)
+  function updateTotalDisplay() {
+    let total = 0;
+    if (partialCart.length > 0) {
+      // Show partial cart total
+      partialCart.forEach((p) => {
+        total += p.price * p.qty;
+      });
+      grandTotalEl.textContent = total.toFixed(2);
+    } else {
+      // Show 0 when no items are selected
+      grandTotalEl.textContent = "0.00";
+    }
+  }
 
   // Render Cart
   function renderCart() {
@@ -51,17 +81,14 @@ document.addEventListener("DOMContentLoaded", function () {
     cartTable.style.display = "table";
     cartFooter.classList.remove("hide"); // to hide
 
-    let grandTotal = 0;
     products.forEach((p) => {
       let totalPrice = p.price * p.qty;
-      grandTotal += totalPrice;
       console.log("totalPrice: ", totalPrice);
-      console.log("grandTotal: ", grandTotal);
       let row = document.createElement("tr");
       row.setAttribute("data-id", p.id);
       console.log("row1: ", row.getAttribute("data-id"));
       row.innerHTML = `
-            <td><input type="checkbox" class="item-check"></td>
+            <td><input type="checkbox" class="item-check" checked></td>
             <td>
               <div class="product">
                 <img src="${p.img}" alt="product" width="100" height="100">
@@ -79,7 +106,22 @@ document.addEventListener("DOMContentLoaded", function () {
           `;
       cartBody.appendChild(row);
     });
-    grandTotalEl.textContent = (grandTotal).toFixed(2);
+
+    // Set select all checkbox to checked by default
+    if (selectAll) {
+      selectAll.checked = true;
+    }
+
+    // Initialize partial cart and update total display
+    updatePartialCart();
+
+    document.querySelectorAll(".item-check").forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        const allChecked = [...document.querySelectorAll(".item-check")].every(cb => cb.checked);
+        selectAll.checked = allChecked;
+        updatePartialCart();
+      });
+    });
   }
 
   // Initial render
@@ -134,7 +176,6 @@ document.addEventListener("DOMContentLoaded", function () {
           localStorage.setItem("users", JSON.stringify(users));
           renderCart();
           window.location.reload();
-
         }
       }
     }
@@ -146,8 +187,6 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("users", JSON.stringify(users));
         renderCart();
         window.location.reload();
-
-
       }
     }
   });
@@ -157,6 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelectorAll(".item-check").forEach((cb) => {
       cb.checked = selectAll.checked;
     });
+    updatePartialCart();
   });
 
   // Delete selected
@@ -177,15 +217,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Checkout
   document.getElementById("checkoutBtn").addEventListener("click", function () {
-    // Explicitly clear any direct-checkout item so checkout uses full cart
-    try { sessionStorage.removeItem('directCheckoutItem'); } catch (e) {}
+    // Explicitly clear any direct-checkout item so checkout uses partial cart
+    try { sessionStorage.removeItem('directCheckoutItem'); } catch (e) { }
+
     if (products.length === 0) {
       alert("Your cart is empty!");
-    } else {
-      alert("Proceeding to checkout with total: RM " + grandTotalEl.textContent);
+      return;
+    }
+
+    // Check if any items are selected for partial checkout
+    if (partialCart.length > 0) {
+      // Store partial cart in session storage for checkout
+      sessionStorage.setItem('partialCart', JSON.stringify(partialCart));
+      alert("Proceeding to checkout with " + partialCart.length + " selected items. Total: RM " + grandTotalEl.textContent);
       window.location.href = "checkout.html";
+    } else {
+      // No items selected, show error message
+      alert("Please select at least one item to proceed with checkout.");
     }
   });
-
 
 });
