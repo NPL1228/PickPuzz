@@ -2,21 +2,18 @@
 
 .category-grid {
     display: flex;
-    /* use flexbox */
     flex-direction: row;
-    /* items go in a row */
     flex-wrap: wrap;
     gap: 3rem;
-    justify-content: flex-start;
+    justify-content: center; 
     margin-bottom: 50px;
-    /* spacing between product cards */
+    padding: 0 20px;
 }
 
 .category-grid>.product-card {
     flex: 1 1 200px;
-    /* grow, shrink, base width 200px */
     max-width: 250px;
-    /* optional max width */
+    min-width: 200px;
 }
 
 .category-grid::-webkit-scrollbar-thumb {
@@ -26,10 +23,12 @@
 
 #categoriesContainer {
     position: relative;
-    max-width: 1200px;
+    max-width: 1500px;
     margin: auto;
     padding: 20px;
     overflow: hidden;
+    align-items: center;
+    width: 100%;
 }
 
 .category-header {
@@ -39,31 +38,30 @@
     margin: 20px 0;
     scroll-margin-top: 100px;
     /* match your fixed navbar height */
+    text-align: center;
 }
-
-
 
 .related-container-2 {
     display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 10px 0;
-    scrollbar-width: none;
-    /* Hide scrollbar */
-    -ms-overflow-style: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 20px;
+    flex-wrap: wrap;
 }
-
 
 .related-product {
     background-color: #f7f1f1;
     flex: 0 0 25%;
     height: 500px;
-    width: 400px;
+    width: 300px;
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    min-width: 250px;
+    max-width: 300px;
 }
 
 .related-product:hover {
@@ -73,13 +71,16 @@
 #related-img {
     display: block;
     margin: 0 auto;
+    max-width: 100%;
+    height: auto;
 }
-
 
 #related-details>img {
     width: 25%;
     border-radius: 5px;
     justify-items: center;
+    max-width: 100%;
+    height: auto;
 }
 
 #related-details div {
@@ -87,6 +88,7 @@
     flex-direction: row;
     align-items: center;
     padding: 10px;
+    flex-wrap: wrap;
 }
 
 #related-price {
@@ -100,6 +102,7 @@
     font-family: 'Times New Roman', Times, serif;
     margin-top: 10px;
     font-size: 25px;
+    word-wrap: break-word;
 }
 
 #related-details span {
@@ -143,4 +146,138 @@
 #backToTopBtn.visible {
     display: flex;
     /* show when JS adds .visible */
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet Styles */
+@media screen and (max-width: 1024px) {
+    .category-grid {
+        gap: 2rem;
+        padding: 0 15px;
+    }
+    
+    .category-grid>.product-card {
+        flex: 1 1 180px;
+        max-width: 220px;
+        min-width: 180px;
+    }
+    
+    #categoriesContainer {
+        padding: 15px;
+    }
+    
+    .category-header {
+        font-size: 32px;
+    }
+    
+    .related-product {
+        flex: 0 0 30%;
+        width: 350px;
+        height: 450px;
+        min-width: 200px;
+        max-width: 350px;
+    }
+    
+    #related-productName {
+        font-size: 22px;
+    }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .category-grid {
+        gap: 1.5rem;
+        padding: 0 10px;
+    }
+    
+    .category-grid>.product-card {
+        flex: 1 1 150px;
+        max-width: 180px;
+        min-width: 150px;
+    }
+    
+    #categoriesContainer {
+        padding: 10px;
+    }
+    
+    .category-header {
+        font-size: 28px;
+        margin: 15px 0;
+    }
+    
+    .related-container-2 {
+        gap: 15px;
+        padding: 5px 0;
+    }
+    
+    .related-product {
+        flex: 0 0 45%;
+        width: 280px;
+        height: 400px;
+        min-width: 180px;
+        max-width: 280px;
+        padding: 10px;
+    }
+    
+    #related-price {
+        font-size: 18px;
+    }
+    
+    #related-productName {
+        font-size: 20px;
+    }
+    
+    #related-details div {
+        padding: 8px;
+    }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 480px) {
+    .category-grid {
+        gap: 1rem;
+        padding: 0 5px;
+    }
+    
+    .category-grid>.product-card {
+        flex: 1 1 120px;
+        max-width: 150px;
+        min-width: 120px;
+    }
+    
+    #categoriesContainer {
+        padding: 5px;
+    }
+    
+    .category-header {
+        font-size: 24px;
+        margin: 10px 0;
+    }
+    
+    .related-container-2 {
+        gap: 10px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .related-product {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 300px;
+        height: 350px;
+        min-width: auto;
+    }
+    
+    #related-price {
+        font-size: 16px;
+    }
+    
+    #related-productName {
+        font-size: 18px;
+    }
+    
+    #related-details div {
+        padding: 5px;
+    }
 }

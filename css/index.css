@@ -3,19 +3,29 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    width: 100%;
+}
+
+.heroSection img {
+    max-width: 100%;
+    height: auto;
 }
 
 .categories {
     display: flex;
     flex-direction: column;
     margin: 40px;
+    width: 100%;
+    max-width: 1400px;
 }
 
-.categories img{
+.categories img {
     border-radius: 20px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease-in-out;
     flex: 0 0 25%;
+    max-width: 100%;
+    height: auto;
 }
 
 #cat1:hover,
@@ -36,6 +46,8 @@
     justify-content: center;
     align-items: center;
     margin: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 #cat1 {
@@ -44,6 +56,9 @@
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
     transition: transform 0.5s ease-in-out;
+    flex: 1;
+    min-width: 300px;
+    max-width: 800px;
 }
 
 #cat2 {
@@ -53,6 +68,9 @@
     border-radius: 50px;
     margin-left: 20px;
     transition: transform 0.5s ease-in-out;
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
 }
 
 #cat3 {
@@ -62,6 +80,8 @@
     border-radius: 50px;
     margin-left: 20px;
     transition: transform 0.5s ease-in-out;
+    width: 100%;
+    max-width: 1420px;
 }
 
 #cat4 {
@@ -70,6 +90,9 @@
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
     transition: transform 0.5s ease-in-out;
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
 }
 
 #cat5 {
@@ -79,15 +102,19 @@
     border-radius: 50px;
     margin-left: 20px;
     transition: transform 0.5s ease-in-out;
+    flex: 1;
+    min-width: 300px;
+    max-width: 800px;
 }
 
 .forYou {
     margin: 40px;
+    width: 100%;
+    max-width: 1400px;
 }
 
 .forYou h1 {
     font-size: 50px;
-    margin-left: -100px;
     margin-bottom: 20px;
 }
 
@@ -98,19 +125,20 @@
     align-items: center;
     gap: 30px;
     padding: 20px;
-    max-width: 1200px;
-
+    flex-wrap: wrap;
 }
 
 .forYouItem {
-    background-color: white;
+    background-color: #f7f1f1;
     flex: 0 0 25%;
     height: 500px;
-    width: 400px;
+    width: 300px;
     border-radius: 8px;
     padding: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+    min-width: 250px;
+    max-width: 300px;
 }
 
 .forYouItem:hover {
@@ -120,13 +148,16 @@
 #forYouImg {
     display: block;
     margin: 0 auto;
+    max-width: 100%;
+    height: auto;
 }
 
-
-#forYouDetails>img {
+#forYouDetails > img {
     width: 25%;
     border-radius: 5px;
     justify-items: center;
+    max-width: 100%;
+    height: auto;
 }
 
 #forYouDetails div {
@@ -134,6 +165,7 @@
     flex-direction: row;
     align-items: center;
     padding: 10px;
+    flex-wrap: wrap;
 }
 
 #forYouPrice {
@@ -147,6 +179,7 @@
     font-family: 'Times New Roman', Times, serif;
     margin-top: 10px;
     font-size: 25px;
+    word-wrap: break-word;
 }
 
 #forYouDetails span {
@@ -166,7 +199,7 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 1465px;
+    width: 100%;
     background-color: #E3D9C2;
     color: #39270c;
     padding: 25px;
@@ -175,6 +208,7 @@
     border-radius: 10px;
     text-align: left;
     z-index: 1000;
+    max-width: calc(100% - 50px);
 }
 
 .cookiesContainer h2 {
@@ -197,12 +231,15 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .cookiesButtons {
     display: flex;
     gap: 15px;
     justify-content: flex-end;
+    flex-wrap: wrap;
 }
 
 .cookiesButtons button {
@@ -243,10 +280,12 @@
     padding: 16px 24px;
     border-top: 1px solid #eee;
 }
+
 .socialShare h2 {
     font-size: 30px;
     margin: 0 0 16px 0;
 }
+
 .socialShare div {
     display: flex;
     gap: 40px;
@@ -254,15 +293,265 @@
     justify-content: center;
     flex-wrap: wrap;
 }
+
 .socialShare img {
     width: 40px;
     height: 40px;
 }
+
 #daShareBlock {
     display: flex;
     justify-content: center;
     margin-bottom: 12px;
 }
+
 #fallbackShare {
     justify-content: center;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet Styles */
+@media screen and (max-width: 1024px) {
+    .categories {
+        margin: 20px;
+    }
+    
+    .catGroup {
+        margin: 15px;
+        gap: 15px;
+    }
+    
+    #cat1, #cat2, #cat4, #cat5 {
+        min-width: 250px;
+        height: 400px;
+    }
+    
+    #cat3 {
+        height: 400px;
+    }
+    
+    .forYou {
+        margin: 20px;
+    }
+    
+    .forYou h1 {
+        font-size: 40px;
+        margin-left: -50px;
+    }
+    
+    .forYouContainer {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .forYouItem {
+        flex: 0 0 45%;
+        min-width: 200px;
+        height: 450px;
+    }
+    
+    .cookiesContainer {
+        margin: 15px;
+        padding: 20px;
+    }
+    
+    .cookiesMain {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .cookiesButtons {
+        justify-content: center;
+    }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .heroSection {
+        margin-top: 10px;
+    }
+    
+    .categories {
+        margin: 10px;
+    }
+    
+    .catGroup {
+        margin: 10px;
+        gap: 10px;
+        flex-direction: column;
+    }
+    
+    #cat1, #cat2, #cat4, #cat5 {
+        width: 100%;
+        max-width: 100%;
+        height: 300px;
+        margin-left: 0;
+    }
+    
+    #cat3 {
+        height: 300px;
+        margin-left: 0;
+    }
+    
+    .forYou {
+        margin: 10px;
+    }
+    
+    .forYou h1 {
+        font-size: 30px;
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .forYouContainer {
+        gap: 15px;
+        padding: 10px;
+        flex-direction: column;
+    }
+    
+    .forYouItem {
+        flex: 0 0 100%;
+        width: 100%;
+        max-width: 100%;
+        height: 400px;
+    }
+    
+    #forYouProductName {
+        font-size: 20px;
+    }
+    
+    #forYouPrice {
+        font-size: 18px;
+    }
+    
+    .cookiesContainer {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .cookiesContainer h2 {
+        font-size: 20px;
+    }
+    
+    .cookiesContainer h4 {
+        font-size: 16px;
+    }
+    
+    .cookiesButtons {
+        gap: 10px;
+    }
+    
+    .cookiesButtons button {
+        height: 35px;
+        padding: 8px 15px;
+        font-size: 16px;
+    }
+    
+    .socialShare {
+        margin: 30px auto;
+        padding: 12px 20px;
+    }
+    
+    .socialShare h2 {
+        font-size: 24px;
+    }
+    
+    .socialShare div {
+        gap: 30px;
+    }
+    
+    .socialShare img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 480px) {
+    .categories {
+        margin: 5px;
+    }
+    
+    .catGroup {
+        margin: 5px;
+        gap: 5px;
+    }
+    
+    #cat1, #cat2, #cat4, #cat5 {
+        height: 250px;
+        border-radius: 25px;
+    }
+    
+    #cat3 {
+        height: 250px;
+        border-radius: 25px;
+    }
+    
+    .forYou {
+        margin: 5px;
+    }
+    
+    .forYou h1 {
+        font-size: 24px;
+    }
+    
+    .forYouContainer {
+        gap: 10px;
+        padding: 5px;
+    }
+    
+    .forYouItem {
+        height: 350px;
+        padding: 10px;
+    }
+    
+    #forYouProductName {
+        font-size: 18px;
+    }
+    
+    #forYouPrice {
+        font-size: 16px;
+    }
+    
+    .cookiesContainer {
+        margin: 5px;
+        padding: 10px;
+    }
+    
+    .cookiesContainer h2 {
+        font-size: 18px;
+    }
+    
+    .cookiesContainer h4 {
+        font-size: 14px;
+    }
+    
+    .cookiesButtons {
+        gap: 8px;
+    }
+    
+    .cookiesButtons button {
+        height: 30px;
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+    
+    .socialShare {
+        margin: 20px auto;
+        padding: 10px 15px;
+    }
+    
+    .socialShare h2 {
+        font-size: 20px;
+    }
+    
+    .socialShare div {
+        gap: 20px;
+    }
+    
+    .socialShare img {
+        width: 30px;
+        height: 30px;
+    }
 }

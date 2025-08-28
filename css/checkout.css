@@ -51,14 +51,16 @@
 
 /* Table */
 table {
-  width: 85% !important;
-  margin: 50px !important;
-  margin-left: 115px !important;
+  width: 100% !important;
+  margin: 50px auto !important;
+  margin-left: auto !important;
   border-collapse: separate;
   border-spacing: 0 12px;
   text-align: center;
   table-layout: fixed;
   font-size: 20px;
+  overflow-x: auto;
+  max-width: 1200px;
 }
 
 thead tr {
@@ -148,6 +150,7 @@ tbody td:last-child {
   gap: 12px;
   justify-content: flex-start;
   margin-left: 60px;
+  flex-wrap: wrap;
 }
 
 .product img {
@@ -182,6 +185,7 @@ tbody td:last-child {
   display: flex;
   gap: 15px;
   justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 button {
@@ -200,7 +204,6 @@ button {
   background: #FFA739;
   color: black;
 }
-
 
 .save-btn:hover {
   background: #fe8c00;
@@ -251,4 +254,208 @@ button {
 .accordion-button:focus {
   box-shadow: none !important;
   border-color: transparent !important;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet Styles */
+@media screen and (max-width: 1024px) {
+  .pageTitle {
+    font-size: 32px;
+    margin-top: 40px;
+  }
+  
+  table {
+    font-size: 18px;
+    margin: 40px auto !important;
+  }
+  
+  thead th:nth-child(1),
+  tbody td:nth-child(1) {
+    width: 300px !important;
+  }
+  
+  .product {
+    margin-left: 30px;
+  }
+  
+  .product img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .section-title {
+    font-size: 22px;
+  }
+  
+  .form-select,
+  .input-group input:not([type="radio"]) {
+    padding: 12px;
+    font-size: 15px;
+  }
+  
+  button {
+    padding: 8px 25px;
+    font-size: 15px;
+  }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .pageTitle {
+    font-size: 28px;
+    margin-top: 30px;
+    margin-bottom: -20px;
+  }
+  
+  table {
+    font-size: 16px;
+    margin: 30px auto !important;
+    border-spacing: 0 8px;
+  }
+  
+  thead th,
+  tbody td {
+    padding: 8px 4px;
+  }
+  
+  thead th:nth-child(1),
+  tbody td:nth-child(1) {
+    width: 200px !important;
+  }
+  
+  tbody td:nth-child(1) p {
+    margin-left: 20px;
+    font-size: 14px;
+  }
+  
+  .product {
+    margin-left: 20px;
+    gap: 8px;
+  }
+  
+  .product img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+  
+  .box-option {
+    padding: 12px;
+  }
+  
+  .summary-box {
+    padding: 12px;
+  }
+  
+  .form-select,
+  .input-group input:not([type="radio"]) {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .form-actions {
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  button {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+  
+  #bankCardForm {
+    padding: 15px;
+  }
+  
+  #headingCard1 button,
+  #headingCard2 button {
+    padding-left: 20px !important;
+  }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 480px) {
+  .pageTitle {
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: -15px;
+  }
+  
+  table {
+    font-size: 14px;
+    margin: 20px auto !important;
+    border-spacing: 0 6px;
+  }
+  
+  thead th,
+  tbody td {
+    padding: 6px 2px;
+  }
+  
+  thead th:nth-child(1),
+  tbody td:nth-child(1) {
+    width: 150px !important;
+  }
+  
+  tbody td:nth-child(1) p {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+  
+  .product {
+    margin-left: 10px;
+    gap: 6px;
+  }
+  
+  .product img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .box-option {
+    padding: 10px;
+  }
+  
+  .summary-box {
+    padding: 10px;
+  }
+  
+  .form-select,
+  .input-group input:not([type="radio"]) {
+    padding: 8px;
+    font-size: 13px;
+  }
+  
+  .form-actions {
+    gap: 8px;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  button {
+    padding: 6px 15px;
+    font-size: 13px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  #bankCardForm {
+    padding: 10px;
+  }
+  
+  #headingCard1 button,
+  #headingCard2 button {
+    padding-left: 15px !important;
+    font-size: 14px;
+  }
 }

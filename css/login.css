@@ -6,10 +6,11 @@
     justify-content: center;
     width: 500px;
     height: 500px;
-    margin: 50px;
+    margin: 50px auto;
     background-color: #F7F1F1;
     border-radius: 20px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
 }
 
 .loginTitle {
@@ -32,6 +33,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 20px;
+    box-sizing: border-box;
 }
 
 .passwordHint {
@@ -82,5 +84,123 @@ hr {
     font-size: 20px;
     cursor: pointer;
     text-decoration: none;
+    max-width: 100%;
+}
 
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet Styles */
+@media screen and (max-width: 768px) {
+    .loginContainer {
+        width: 400px;
+        height: 450px;
+        margin: 30px auto;
+    }
+    
+    .loginForm {
+        font-size: 22px;
+    }
+    
+    .loginForm input {
+        font-size: 18px;
+        padding: 8px;
+    }
+    
+    #loginSubmit {
+        font-size: 18px;
+        padding: 8px;
+    }
+    
+    #createAcc {
+        width: 250px;
+        font-size: 18px;
+        padding: 8px;
+    }
+    
+    .forgotPassword {
+        font-size: 14px;
+    }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 480px) {
+    .loginContainer {
+        width: 90%;
+        height: auto;
+        min-height: 400px;
+        margin: 20px auto;
+        padding: 20px 0;
+    }
+    
+    .loginTitle {
+        position: relative;
+        top: auto;
+        margin-bottom: 20px;
+    }
+    
+    .loginForm {
+        font-size: 20px;
+        width: 85%;
+    }
+    
+    .loginForm input {
+        font-size: 16px;
+        padding: 8px;
+        margin: 8px 0;
+    }
+    
+    #loginSubmit {
+        font-size: 16px;
+        padding: 8px;
+        margin-top: 15px;
+    }
+    
+    #createAcc {
+        width: 200px;
+        font-size: 16px;
+        padding: 8px;
+    }
+    
+    .forgotPassword {
+        font-size: 13px;
+    }
+    
+    hr {
+        margin: 12px;
+        width: 85%;
+    }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 360px) {
+    .loginContainer {
+        width: 95%;
+        margin: 15px auto;
+        padding: 15px 0;
+    }
+    
+    .loginForm {
+        font-size: 18px;
+        width: 90%;
+    }
+    
+    .loginForm input {
+        font-size: 14px;
+        padding: 6px;
+    }
+    
+    #loginSubmit {
+        font-size: 14px;
+        padding: 6px;
+    }
+    
+    #createAcc {
+        width: 180px;
+        font-size: 14px;
+        padding: 6px;
+    }
+    
+    .forgotPassword {
+        font-size: 12px;
+    }
 }

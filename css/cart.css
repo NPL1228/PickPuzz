@@ -38,8 +38,8 @@ h2 {
 }
 
 .totalPrice {
-  position: absolute;
-  right: 260px;
+  position: static;
+  text-align: right;
 }
 
 /* Table */
@@ -50,6 +50,7 @@ table {
   text-align: center;
   table-layout: fixed;
   font-size: 20px;
+  overflow-x: auto;
 }
 
 thead tr {
@@ -138,6 +139,7 @@ tbody td:last-child {
   align-items: center;
   gap: 12px;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .product img {
@@ -175,6 +177,7 @@ tbody td:last-child {
 .cart-summary {
   text-align: right;
   margin-top: 20px;
+  padding: 0 20px;
 }
 
 .cart-summary h3 {
@@ -240,7 +243,6 @@ tbody td:last-child {
   left: 0;
   opacity: 1;
 }
-
 
 .filterCatContainer h1 {
   font-size: 30px;
@@ -402,7 +404,7 @@ footer {
   background-color: #F6CA93;
   color: black;
   padding: 40px;
-  height: 300px;
+  min-height: 300px;
   font-size: 20px;
   margin-top: 111px;
 }
@@ -413,12 +415,14 @@ footer {
   justify-content: space-between;
   width: 100%;
   gap: 80px;
-
+  flex-wrap: wrap;
 }
 
 .footLogo {
   position: relative;
-  left: 50px;
+  left: 0;
+  flex: 1;
+  min-width: 200px;
 }
 
 footer h4 {
@@ -460,10 +464,242 @@ footer a:hover {
 .footInfo {
   flex: 1;
   width: 25%;
+  min-width: 200px;
 }
 
 .footCopy {
-  position: absolute;
-  bottom: 10px;
-  left: 580px;
+  position: static;
+  bottom: auto;
+  left: auto;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet Styles */
+@media screen and (max-width: 1024px) {
+  h2 {
+    font-size: 32px;
+  }
+  
+  table {
+    font-size: 18px;
+  }
+  
+  thead th:nth-child(2),
+  tbody td:nth-child(2) {
+    width: 300px !important;
+  }
+  
+  .product img {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .cart-summary {
+    padding: 0 15px;
+  }
+  
+  .filterCatContainer {
+    width: 300px;
+    left: -300px;
+  }
+  
+  .footMain {
+    gap: 40px;
+  }
+  
+  .footInfo {
+    width: 45%;
+  }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+  }
+  
+  table {
+    font-size: 16px;
+    border-spacing: 0 8px;
+  }
+  
+  thead th,
+  tbody td {
+    padding: 8px 4px;
+  }
+  
+  thead th:nth-child(2),
+  tbody td:nth-child(2) {
+    width: 200px !important;
+  }
+  
+  tbody td:nth-child(2) p {
+    margin-left: 20px;
+    font-size: 14px;
+  }
+  
+  .product {
+    gap: 8px;
+  }
+  
+  .product img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .quantity input {
+    width: 45px;
+    padding: 3px;
+  }
+  
+  .remove-btn {
+    padding: 4px 8px;
+    font-size: 14px;
+  }
+  
+  .cart-summary {
+    text-align: center;
+    padding: 0 10px;
+  }
+  
+  .cart-summary h3 {
+    font-size: 18px;
+  }
+  
+  #checkoutBtn,
+  #deleteSelected {
+    font-size: 18px;
+    padding: 8px 12px;
+  }
+  
+  #emptyMsg {
+    font-size: 36px;
+  }
+  
+  .filterCatContainer {
+    width: 280px;
+    left: -280px;
+    height: 80vh;
+  }
+  
+  .filterSection {
+    margin-top: 120px;
+    height: auto;
+    min-height: 400px;
+  }
+  
+  .filterSection:hover {
+    transform: none;
+  }
+  
+  .priceInput {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  footer {
+    padding: 20px;
+    font-size: 16px;
+  }
+  
+  .footMain {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .footLogo, .footInfo {
+    width: 100%;
+    min-width: auto;
+  }
+  
+  .footCopy {
+    margin-top: 30px;
+  }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 480px) {
+  h2 {
+    font-size: 24px;
+  }
+  
+  table {
+    font-size: 14px;
+    border-spacing: 0 6px;
+  }
+  
+  thead th,
+  tbody td {
+    padding: 6px 2px;
+  }
+  
+  thead th:nth-child(2),
+  tbody td:nth-child(2) {
+    width: 150px !important;
+  }
+  
+  tbody td:nth-child(2) p {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+  
+  .product img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .quantity input {
+    width: 35px;
+    padding: 2px;
+  }
+  
+  .remove-btn {
+    padding: 3px 6px;
+    font-size: 12px;
+  }
+  
+  .cart-summary {
+    padding: 0 5px;
+  }
+  
+  .cart-summary h3 {
+    font-size: 16px;
+  }
+  
+  #checkoutBtn,
+  #deleteSelected {
+    font-size: 16px;
+    padding: 6px 10px;
+  }
+  
+  #emptyMsg {
+    font-size: 28px;
+  }
+  
+  .filterCatContainer {
+    width: 250px;
+    left: -250px;
+  }
+  
+  .catSection {
+    padding: 15px;
+  }
+  
+  .catSection ul {
+    font-size: 16px;
+  }
+  
+  footer {
+    padding: 15px;
+    font-size: 14px;
+  }
+  
+  footer a {
+    font-size: 14px;
+  }
 }

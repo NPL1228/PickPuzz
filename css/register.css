@@ -6,10 +6,11 @@
     justify-content: center;
     width: 500px;
     height: 500px;
-    margin: 50px;
+    margin: 50px auto;
     background-color: #F7F1F1;
     border-radius: 20px;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
 }
 
 .registerTitle {
@@ -32,6 +33,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 20px;
+    box-sizing: border-box;
 }
 
 .passwordHint {
@@ -77,5 +79,111 @@ hr {
     font-size: 20px;
     cursor: pointer;
     text-decoration: none;
+    max-width: 100%;
+}
 
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet Styles */
+@media screen and (max-width: 768px) {
+    .registerContainer {
+        width: 400px;
+        height: 450px;
+        margin: 30px auto;
+    }
+    
+    .registerForm {
+        font-size: 22px;
+    }
+    
+    .registerForm input {
+        font-size: 18px;
+        padding: 8px;
+    }
+    
+    #registerSubmit {
+        font-size: 18px;
+        padding: 8px;
+    }
+    
+    #login {
+        width: 250px;
+        font-size: 18px;
+        padding: 8px;
+    }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 480px) {
+    .registerContainer {
+        width: 90%;
+        height: auto;
+        min-height: 400px;
+        margin: 20px auto;
+        padding: 20px 0;
+    }
+    
+    .registerTitle {
+        position: relative;
+        top: auto;
+        margin-bottom: 20px;
+    }
+    
+    .registerForm {
+        font-size: 20px;
+        width: 85%;
+    }
+    
+    .registerForm input {
+        font-size: 16px;
+        padding: 8px;
+        margin: 8px 0;
+    }
+    
+    #registerSubmit {
+        font-size: 16px;
+        padding: 8px;
+        margin-top: 15px;
+    }
+    
+    #login {
+        width: 200px;
+        font-size: 16px;
+        padding: 8px;
+    }
+    
+    hr {
+        margin: 12px;
+        width: 85%;
+    }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 360px) {
+    .registerContainer {
+        width: 95%;
+        margin: 15px auto;
+        padding: 15px 0;
+    }
+    
+    .registerForm {
+        font-size: 18px;
+        width: 90%;
+    }
+    
+    .registerForm input {
+        font-size: 14px;
+        padding: 6px;
+    }
+    
+    #registerSubmit {
+        font-size: 14px;
+        padding: 6px;
+    }
+    
+    #login {
+        width: 180px;
+        font-size: 14px;
+        padding: 6px;
+    }
 }

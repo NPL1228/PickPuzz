@@ -1,12 +1,12 @@
 .formContainer {
   max-width: 1200px;
-  margin: 60px;
-  margin-left: 150px;
+  margin: 60px auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
   min-height: 80vh;
+  padding: 0 20px;
 }
 
 .formSection {
@@ -44,6 +44,7 @@
   font-size: 15px;
   transition: all 0.3s ease;
   background: #f8fafc;
+  box-sizing: border-box;
 }
 
 .formGroup input:focus,
@@ -90,6 +91,7 @@
   height: 350px;
   position: relative;
   animation: float 3s ease-in-out infinite;
+  max-width: 100%;
 }
 
 .pencil {
@@ -215,6 +217,7 @@
   margin-top: 100px;
   margin-bottom: 60px;
   font-size: 20px;
+  flex-wrap: wrap;
 }
 
 .socialGroup {
@@ -238,4 +241,213 @@
   width: 70px;
   height: 70px;
   margin-bottom: 30px;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet Styles */
+@media screen and (max-width: 1024px) {
+  .formContainer {
+    margin: 40px auto;
+    gap: 40px;
+    padding: 0 15px;
+  }
+  
+  .formSection {
+    padding: 30px;
+  }
+  
+  .formSection h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+  }
+  
+  .formGroup label {
+    font-size: 18px;
+  }
+  
+  .formGroup input,
+  .formGroup textarea {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  
+  .submitBtn {
+    padding: 14px;
+    font-size: 18px;
+  }
+  
+  .character {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .socialMedia {
+    gap: 60px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+    font-size: 18px;
+  }
+  
+  .socialMedia img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 25px;
+  }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+  .formContainer {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 30px auto;
+    padding: 0 10px;
+  }
+  
+  .formSection {
+    padding: 25px;
+    order: 1;
+  }
+  
+  .illustrationSection {
+    order: 2;
+  }
+  
+  .formSection h1 {
+    font-size: 36px;
+    margin-bottom: 25px;
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  .formGroup label {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .formGroup input,
+  .formGroup textarea {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+  
+  .formGroup textarea {
+    height: 100px;
+  }
+  
+  .submitBtn {
+    padding: 12px;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+  
+  .character {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .pencil {
+    width: 15px;
+    height: 150px;
+    top: -40px;
+    right: -20px;
+  }
+  
+  .bgBlob {
+    width: 150px;
+    height: 120px;
+    top: -40px;
+    right: -40px;
+  }
+  
+  .socialMedia {
+    gap: 40px;
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+  
+  .socialMedia img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+}
+
+/* Small Mobile Styles */
+@media screen and (max-width: 480px) {
+  .formContainer {
+    margin: 20px auto;
+    padding: 0 5px;
+  }
+  
+  .formSection {
+    padding: 20px;
+  }
+  
+  .formSection h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .formGroup {
+    margin-bottom: 15px;
+  }
+  
+  .formGroup label {
+    font-size: 14px;
+    margin-bottom: 6px;
+  }
+  
+  .formGroup input,
+  .formGroup textarea {
+    padding: 8px 12px;
+    font-size: 13px;
+    border-radius: 8px;
+  }
+  
+  .formGroup textarea {
+    height: 80px;
+  }
+  
+  .submitBtn {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+  }
+  
+  .character {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .pencil {
+    width: 12px;
+    height: 120px;
+    top: -30px;
+    right: -15px;
+  }
+  
+  .bgBlob {
+    width: 120px;
+    height: 90px;
+    top: -30px;
+    right: -30px;
+  }
+  
+  .socialMedia {
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  
+  .socialMedia img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 15px;
+  }
 }

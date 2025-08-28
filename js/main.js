@@ -94,6 +94,62 @@ function updateCurrentFilters() {
   ).map(cb => cb.id);
 }
 
+// Function to load filter state from URL parameters
+function loadFilterStateFromURL() {
+  const urlParams = new URLSearchParams(window.location.search);
+  
+  // Load price range
+  const min = urlParams.get("min");
+  const max = urlParams.get("max");
+  if (min !== null) currentFilters.min = parseInt(min) || 0;
+  if (max !== null) currentFilters.max = parseInt(max) || 1000;
+  
+  // Load materials
+  const materialParam = urlParams.get("material");
+  if (materialParam) {
+    currentFilters.materials = materialParam.split(",");
+  }
+  
+  // Load pieces
+  const piecesParam = urlParams.get("pieces");
+  if (piecesParam) {
+    currentFilters.pieces = piecesParam.split(",");
+  }
+}
+
+// Function to apply filter state to UI elements
+function applyFilterStateToUI() {
+  // Apply price range
+  const minInput = document.querySelector(".minInput");
+  const maxInput = document.querySelector(".maxInput");
+  const minRange = document.querySelector(".minRange");
+  const maxRange = document.querySelector(".maxRange");
+  const rangevalue = document.querySelector(".slider .priceSlider");
+  
+  if (minInput) minInput.value = currentFilters.min;
+  if (maxInput) maxInput.value = currentFilters.max;
+  if (minRange) minRange.value = currentFilters.min;
+  if (maxRange) maxRange.value = currentFilters.max;
+  
+  // Update price slider visual
+  if (rangevalue && minRange && maxRange) {
+    rangevalue.style.left = `${(currentFilters.min / minRange.max) * 100}%`;
+    rangevalue.style.right = `${100 - (currentFilters.max / maxRange.max) * 100}%`;
+  }
+  
+  // Apply material checkboxes
+  currentFilters.materials.forEach(material => {
+    const checkbox = document.getElementById(material);
+    if (checkbox) checkbox.checked = true;
+  });
+  
+  // Apply pieces checkboxes
+  currentFilters.pieces.forEach(piece => {
+    const checkbox = document.getElementById(piece);
+    if (checkbox) checkbox.checked = true;
+  });
+}
+
 // Add event listeners for material checkboxes
 function attachMaterialCheckboxListeners() {
   const materialCheckboxes = document.querySelectorAll("[data-filter='material'] input[type='checkbox']");
@@ -338,6 +394,10 @@ function updateSearchBar() {
 document.addEventListener("DOMContentLoaded", () => {
   // Update search bar with current query
   updateSearchBar();
+
+  // Load filter state from URL and apply to UI
+  loadFilterStateFromURL();
+  applyFilterStateToUI();
 
   // Initialize filters and attach listeners
   updateCurrentFilters();

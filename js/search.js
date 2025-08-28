@@ -161,58 +161,122 @@ async function renderSearchResults(params, containerId = 'resultsContainer') {
     });
 
     if (filtered.length === 0) {
-        let noResultMsg = `<h2 style="color:red; font-size:32px; text-align:center;">No results found`;
+        // Create a more user-friendly no results display with filter management
+        let noResultMsg = `
+            <div class="no-results-container">
+                <h2 class="no-results-title">No results found`;
     
         // Add search query if present
         if (query) {
             noResultMsg += ` for <span class="searchHighlight">"${query}"</span>`;
         }
     
-        // Add filters if present
-        const filterDetails = [];
+        noResultMsg += `</h2>`;
+    
+        // Add compact filter summary header
+        const activeFilters = [];
         if (params.get("min") || params.get("max")) {
             const min = params.get("min") || 0;
             const max = params.get("max") || 1000;
-            filterDetails.push(`Price: RM${min}-RM${max}`);
+            activeFilters.push(`Price: RM${min}-RM${max}`);
         }
         if (params.get("material")) {
             const materials = params.get("material")
                 .split(",")
                 .map(m => m.charAt(0).toUpperCase() + m.slice(1))
                 .join(", ");
-            filterDetails.push(`Material: ${materials}`);
+            activeFilters.push(`Material: ${materials}`);
         }
         if (params.get("pieces")) {
             const pieces = params.get("pieces")
                 .split(",")
                 .map(p => p === "1000+" ? "1000+ pieces" : p + " pieces")
                 .join(", ");
-            filterDetails.push(`Pieces: ${pieces}`);
+            activeFilters.push(`Pieces: ${pieces}`);
         }
     
-        if (filterDetails.length > 0) {
-            noResultMsg += `<br><small>with filters: ${filterDetails.join(" | ")}</small>`;
+        if (activeFilters.length > 0) {
+            noResultMsg += `
+                <div class="active-filters-summary">
+                    <h3>Active Filters:</h3>
+                    <div class="filter-tags">
+                        ${activeFilters.map(detail => {
+                            const filterType = detail.split(':')[0].toLowerCase();
+                            const filterValue = detail.split(': ')[1];
+                            return `<span class="filter-tag removable-filter" data-filter-type="${filterType}" data-filter-value="${filterValue}">
+                                ${detail} <span class="remove-filter">×</span>
+                            </span>`;
+                        }).join("")}
+                    </div>
+                </div>
+            `;
         }
     
-        // Add Clear Filters button
+        // Add action buttons
         noResultMsg += `
-            <br>
-            <button id="clearFiltersBtn">
-                Back to Home
-            </button>
-        `;
-    
-        noResultMsg += `</h2>`;
+            <div class="no-results-actions">
+                <button id="modifyFiltersBtn" class="action-btn first">
+                    Modify Filters
+                </button>
+                <button id="clearAllFiltersBtn" class="action-btn second">
+                    Reset All Filters
+                </button>
+                <button id="backToHomeBtn" class="action-btn third">
+                    Back to Home
+                </button>
+            </div>
+        </div>`;
     
         container.innerHTML = noResultMsg;
     
-        // Attach clear button event
-        const clearBtn = document.getElementById("clearFiltersBtn");
-        if (clearBtn) {
-            clearBtn.addEventListener("click", () => {
-                window.location.href = "index.html"; // reset back to default search page
+        // Attach event handlers for the new buttons
+        const modifyBtn = document.getElementById("modifyFiltersBtn");
+        const clearAllBtn = document.getElementById("clearAllFiltersBtn");
+        const backBtn = document.getElementById("backToHomeBtn");
+        
+        if (modifyBtn) {
+            modifyBtn.addEventListener("click", () => {
+                // Open the filter menu
+                const filterContainer = document.querySelector(".filterCatContainer");
+                const overlay = document.querySelector(".overlay");
+                if (filterContainer && overlay) {
+                    filterContainer.classList.add("show");
+                    overlay.classList.add("show");
+                }
             });
         }
+        
+        if (clearAllBtn) {
+            clearAllBtn.addEventListener("click", () => {
+                // Clear all filters but keep search query if present
+                const newParams = new URLSearchParams();
+                if (query) {
+                    newParams.set("q", query);
+                }
+                const newUrl = newParams.toString() ? `search.html?${newParams.toString()}` : "search.html";
+                window.location.href = newUrl;
+            });
+        }
+        
+        if (backBtn) {
+            backBtn.addEventListener("click", () => {
+                window.location.href = "index.html";
+            });
+        }
+        
+        // Add click handlers for removable filter tags
+        const removableFilters = container.querySelectorAll('.removable-filter');
+        removableFilters.forEach(filterItem => {
+            const removeBtn = filterItem.querySelector('.remove-filter');
+            if (removeBtn) {
+                removeBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const filterType = filterItem.dataset.filterType;
+                    const filterValue = filterItem.dataset.filterValue;
+                    removeIndividualFilter(filterType, filterValue);
+                });
+            }
+        });
     
         return;
     }
@@ -292,6 +356,11 @@ async function renderSearchResults(params, containerId = 'resultsContainer') {
         headerText = `All Products: <span class="searchHighlight">${filtered.length}</span> products available`;
     }
     
+    // Add filter management button if filters are active
+    if (hasFilters) {
+        headerText += `<br><button id="manageFiltersBtn" class="manage-filters-btn">Manage Filters</button>`;
+    }
+    
     header.innerHTML = headerText;
     container.appendChild(header);
 
@@ -309,6 +378,20 @@ async function renderSearchResults(params, containerId = 'resultsContainer') {
             });
         }
     });
+    
+    // Add click handler for manage filters button
+    const manageFiltersBtn = document.getElementById("manageFiltersBtn");
+    if (manageFiltersBtn) {
+        manageFiltersBtn.addEventListener("click", () => {
+            // Open the filter menu
+            const filterContainer = document.querySelector(".filterCatContainer");
+            const overlay = document.querySelector(".overlay");
+            if (filterContainer && overlay) {
+                filterContainer.classList.add("show");
+                overlay.classList.add("show");
+            }
+        });
+    }
 
     // Create grid
     const grid = document.createElement('div');

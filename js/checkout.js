@@ -167,6 +167,11 @@ function saveAddress() {
   const state = document.getElementById('state').value;
   const phone = document.getElementById('addressPhone').value;
 
+  if (isNaN(phone)) {
+    alert("Phone numbers must be number digit only!");
+    return;
+}
+
   if (!title || !address1 || !postalCode || !city || !state || !phone) {
     alert('Please fill in all required address fields');
     return;

@@ -73,8 +73,12 @@
         <!--Cart Footer-->
         <div class="d-flex justify-content-between align-items-center mt-3" id="cartFooter">
             <button class="btn btn-danger btn-sm" id="deleteSelected">Delete Selected</button>
-            <h4 class="totalPrice">Total: RM <span id="grandTotal">0</span></h4>
-            <button class="btn btn-warning btn-sm" id="checkoutBtn">Check Out</button>
+            
+            <!-- Group total + checkout -->
+            <div class="d-flex align-items-center gap-5">
+                <h4 class="totalPrice mb-0">Total: RM <span id="grandTotal">0</span></h4>
+                <button class="btn btn-warning btn-sm" id="checkoutBtn">Check Out</button>
+            </div>
         </div>
 
 

@@ -39,14 +39,18 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 1000;
+    flex-wrap: wrap;
 }
 
 .menu {
     margin-left: 20px;
+    order: 1;
 }
 
 .logo {
-    margin-left: -600px;
+    margin-left: 50px;
+    order: 2;
+    text-align: center;
 }
 
 #magGlassIcon:hover {
@@ -54,42 +58,49 @@ a:hover {
 }
 
 .searchBar {
-    margin-left: 600px;
+    margin-left: 0;
+    order: 4;
+    position: relative;
+    flex: 1;
+    max-width: 250px;
 }
 
 .navBar {
-    position: absolute;
+    position: static;
     display: flex;
-    margin-left: 300px;
-    margin-top: 15px;
+    margin-left: 0;
+    margin-top: 0;
     flex: 1;
     justify-content: center;
     gap: 50px;
-    height: 50px;
+    height: auto;
+    order: 3;
+    flex-wrap: wrap;
 }
-
 
 .navBar a {
     display: inline-block;
     color: black;
     font-size: 25px;
     text-decoration: none;
+    white-space: nowrap;
 }
 
 #magGlassIcon {
     position: absolute;
     z-index: 2;
-    top: 38px;
-    left: 1110px;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
 }
 
 #search {
     font-size: large;
-    width: 300px;
+    width: 100%;
     height: 40px;
-    position: absolute;
-    top: 30px;
-    left: 1100px;
+    position: relative;
+    top: 0;
+    left: 0;
     z-index: 1;
     text-indent: 40px;
     border-radius: 10px;
@@ -101,9 +112,9 @@ a:hover {
 /* Clear search button styling */
 .clearSearchBtn {
     position: absolute;
-    top: 35px;
-    left: 1360px;
-    /* Position to the right of search input */
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
     z-index: 3;
     background: #ccc;
     color: #666;
@@ -131,8 +142,10 @@ a:hover {
 }
 
 #cart {
-    position: absolute;
-    right: 40px;
+    position: static;
+    right: auto;
+    order: 5;
+    margin-left: 20px;
 }
 
 /* Cart quantity badge for header cart icon */
@@ -150,18 +163,20 @@ a:hover {
     display: none;
 }
 
-
 #profile {
-    top: 110px;
-    position: absolute;
-    right: 35px;
+    top: auto;
+    position: static;
+    right: auto;
+    order: 6;
+    margin-left: 20px;
+    margin-right: 5px;
 }
 
 /* Profile Dropdown */
 .dropdown {
     position: absolute;
-    top: 110px;
-    right: 100px;
+    top: 100px;
+    right: 20px;
     background: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
@@ -226,6 +241,8 @@ a:hover {
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .overlay {
@@ -268,7 +285,6 @@ a:hover {
     left: 0;
     opacity: 1;
 }
-
 
 .filterCatContainer h1 {
     margin-bottom: 20px;
@@ -459,7 +475,7 @@ footer {
     background-color: #F6CA93;
     color: black;
     padding: 40px;
-    height: 300px;
+    min-height: 300px;
     font-size: 20px;
     margin-top: 111px;
 }
@@ -468,7 +484,6 @@ footer {
 #google_translate_element {
     position: absolute;
     right: 40px;
-    bottom: 40px;
 }
 
 /* Hide Google top frame */
@@ -485,6 +500,16 @@ body {
     top: 0px !important;
 }
 
+footer { 
+    font-family: 'Judson', sans-serif;
+    position: relative;
+    background-color: #F6CA93;
+    color: black;
+    padding: 40px;
+    height: 300px;
+    font-size: 20px;
+    margin-top: 120px;
+}
 
 .footMain {
     display: flex;
@@ -501,16 +526,19 @@ body {
 }
 
 footer h4 {
-    margin-bottom: 10px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    font-weight: bold;
 }
 
 footer ul {
     list-style-type: none;
     padding-left: 0;
+    margin-bottom: 30px !important;
 }
 
 footer li {
-    margin-bottom: 10px;
+    margin-bottom: 2px !important; 
 }
 
 footer a {
@@ -540,6 +568,566 @@ footer a:hover {
 
 .footCopy {
     position: absolute;
-    bottom: 20px;
+    bottom: 10px;
     left: 580px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 1200px) {
+    .sidebar {
+        width: 300px;
+    }
+    
+    .filterCatContainer {
+        width: 300px;
+        left: -350px;
+    }
+    
+    .col-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    
+    .col-2 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    
+    /* Filter container responsive adjustments */
+    .filterCatContainer {
+        width: 300px;
+        left: -350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        width: 280px;
+        padding: 15px;
+    }
+    
+    .filterCatContainer {
+        width: 280px;
+        left: -320px;
+    }
+    
+    .sidebar li {
+        height: 60px;
+        font-size: clamp(12px, 20px, 20px);
+    }
+    
+    .section {
+        padding: 20px;
+        margin: 20px auto 25px auto;
+    }
+    .section h3 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .info-label {
+        font-size: 16px;
+        padding-right: 15px;
+    }
+    
+    .info-value {
+        font-size: 16px;
+    }
+    
+    .popup-content {
+        max-width: 450px;
+        padding: 25px;
+    }
+    
+    .card-list {
+        padding: 20px;
+    }
+    
+    .card-item {
+        padding: 15px;
+    }
+    
+    .purchase-thumb {
+        width: 60px;
+        height: 60px;
+    }
+    
+
+}
+
+@media (max-width: 768px) {
+
+    
+    /* Sidebar adjustments for mobile */
+    .sidebar {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        z-index: 1000;
+        transition: left 0.3s ease;
+        background-color: #f7f1f1;
+    }
+    
+    .sidebar.show {
+        left: 0;
+    }
+    
+    /* Fix main content overlap when sidebar is open */
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+        transition: transform 0.3s ease;
+    }
+    
+    /* Adjust main content when sidebar is open to prevent overlap */
+    .sidebar.show + .col-9 .main-content,
+    .sidebar.show ~ .col-9 .main-content {
+        transform: translateX(0);
+        margin-left: 0;
+    }
+    
+    /* Ensure main content doesn't get hidden behind sidebar */
+    .container-fluid {
+        position: relative;
+        z-index: 1;
+    }
+    
+    .filterCatContainer {
+        width: 100%;
+        left: -100%;
+        height: calc(100vh - 70px);
+    }
+    
+    .filterCatContainer.show {
+        left: 0;
+    }
+    
+    /* Menu icon responsive adjustments */
+    .menu img {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    
+    .menu img:hover {
+        transform: scale(1.1);
+    }
+    
+    /* Mobile filter container improvements */
+    .filterCatContainer .catSection {
+        padding: 15px;
+    }
+    
+    .filterCatContainer .catSection ul {
+        font-size: 18px;
+    }
+    
+    .filterCatContainer .filterSection {
+        margin-top: 100px;
+        padding: 15px;
+    }
+    
+    .filterCatContainer .filterSub h2 {
+        font-size: 20px;
+    }
+    
+    .filterCatContainer .checkboxOption {
+        font-size: 16px;
+    }
+    
+    .col-2, .col-9 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .section {
+        padding: 15px;
+        margin: 15px 0 20px 0;
+        border-radius: 8px;
+    }
+    
+    .section h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .col {
+        flex: none;
+    }
+    
+    .info-label {
+        text-align: left;
+        padding-right: 0;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+    
+    .info-value {
+        margin-left: 0;
+        font-size: 14px;
+    }
+    
+    .d-flex.justify-content-between {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    .popup-content {
+        max-width: 95%;
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .popup-overlay h2 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .input-group label {
+        font-size: 14px;
+        margin-bottom: 5px;
+    }
+    
+    .form-select,
+    .input-group input:not([type="radio"]) {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .radio-group {
+        padding-left: 15px;
+        gap: 8px;
+    }
+    
+    .radio-option {
+        gap: 8px;
+    }
+    
+    .form-check-input[type="radio"] {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    button:not(.clearSearchBtn) {
+        padding: 12px 20px;
+        font-size: 14px;
+        margin-top: 15px;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .card-list {
+        padding: 15px;
+    }
+    
+    .card-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px;
+    }
+    
+    .card-details {
+        width: 100%;
+    }
+    
+    .card-details h5 {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+    
+    .purchase-thumb {
+        width: 50px;
+        height: 50px;
+        align-self: flex-start;
+    }
+    
+    .popup-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .detail-label {
+        font-size: 14px;
+    }
+    
+    .detail-value {
+        font-size: 14px;
+    }
+    
+    footer {
+        padding: 20px;
+        height: auto;
+        font-size: 16px;
+        margin-top: 80px;
+    }
+    
+    .footMain {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .footLogo {
+        left: 0;
+        text-align: center;
+    }
+    
+    .footInfo {
+        width: 100%;
+        text-align: center;
+    }
+    
+    footer h4 {
+        font-size: 18px;
+    }
+    
+    footer a {
+        font-size: 16px;
+    }
+    
+    .footCopy {
+        position: relative;
+        left: 0;
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    
+    /* Sidebar adjustments for small mobile */
+    .sidebar {
+        top: 65px;
+        height: calc(100vh - 65px);
+    }
+    
+    .filterCatContainer {
+        height: calc(100vh - 65px);
+        top: 65px;
+    }
+    
+    /* Small mobile filter container improvements */
+    .filterCatContainer .catSection {
+        padding: 12px;
+    }
+    
+    .filterCatContainer .catSection ul {
+        font-size: 16px;
+    }
+    
+    .filterCatContainer .filterSection {
+        margin-top: 80px;
+        padding: 12px;
+    }
+    
+    .filterCatContainer .filterSub h2 {
+        font-size: 18px;
+    }
+    
+    .filterCatContainer .checkboxOption {
+        font-size: 14px;
+    }
+    
+    .main-content {
+        padding: 10px;
+    }
+    
+    .section {
+        padding: 12px;
+        margin: 10px 0 15px 0;
+    }
+    
+    .section h3 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .info-label {
+        font-size: 13px;
+    }
+    
+    .info-value {
+        font-size: 13px;
+    }
+    
+    .popup-content {
+        margin: 10px;
+        padding: 15px;
+    }
+    
+    .popup-overlay h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    
+    .input-group label {
+        font-size: 13px;
+    }
+    
+    .form-select,
+    .input-group input:not([type="radio"]) {
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    .radio-group {
+        padding-left: 10px;
+    }
+    
+    .form-check-input[type="radio"] {
+        width: 16px;
+        height: 16px;
+    }
+    
+    button:not(.clearSearchBtn) {
+        padding: 10px 15px;
+        font-size: 13px;
+        margin-top: 12px;
+    }
+    
+    .card-list {
+        padding: 10px;
+    }
+    
+    .card-item {
+        padding: 12px;
+    }
+    
+    .card-details h5 {
+        font-size: 14px;
+    }
+    
+    .purchase-thumb {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .detail-label,
+    .detail-value {
+        font-size: 13px;
+    }
+    
+    footer {
+        padding: 15px;
+        font-size: 14px;
+    }
+    
+    .footMain {
+        gap: 20px;
+    }
+    
+    footer h4 {
+        font-size: 16px;
+    }
+    
+    footer a {
+        font-size: 14px;
+    }
+}
+
+/* Add hamburger menu for mobile sidebar */
+.sidebar-toggle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sidebar-toggle {
+        display: block;
+        position: fixed;
+        top: 80px;
+        left: 15px;
+        z-index: 1001;
+        background: #F6CA93;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        cursor: pointer;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    
+    .sidebar-toggle i {
+        font-size: 18px;
+        color: #000;
+    }
+    
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .sidebar-overlay.show {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+/* Sidebar overlay styles for all screen sizes */
+.sidebar-overlay {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sidebar-overlay {
+        display: block;
+    }
+}
+
+/* Ensure proper spacing for mobile navigation */
+@media (max-width: 768px) {
+    .nav-pills {
+        padding: 0;
+    }
+    
+    .nav-pills .nav-item {
+        margin-bottom: 5px;
+    }
+    
+    .nav-pills .nav-link {
+        padding: 12px 15px;
+        font-size: 16px;
+        border-radius: 8px;
+    }
+}
+
+/* Fix for mobile form layouts */
+@media (max-width: 576px) {
+    .row.g-0 {
+        flex-direction: column;
+    }
+    
+    .row.g-0 .col-4,
+    .row.g-0 .col {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .form-select {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
 }

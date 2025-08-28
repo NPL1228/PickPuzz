@@ -1,12 +1,24 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".registerForm");
 
+    // Email validation function
+    function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+
     form.addEventListener("submit", (e) => {
         e.preventDefault();
 
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
         const confirmPassword = document.getElementById("confirmPassword").value.trim();
+
+        // Email format validation
+        if (!isValidEmail(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
 
         if (password.length < 8) {
             alert("Password must be at least 8 characters long.");
