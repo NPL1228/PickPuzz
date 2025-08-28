@@ -437,6 +437,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
+
+  document.querySelectorAll('input[name="payment"]').forEach(radio => {
+    radio.addEventListener("change", function () {
+      document.querySelectorAll('input[name="payment"]').forEach(otherRadio => {
+        if (otherRadio !== this) {
+          otherRadio.checked = false;
+        }
+      });
+    });
+  });
 });
 
 // Bootstrap form validation
