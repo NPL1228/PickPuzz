@@ -44,7 +44,7 @@ function initializeMobileMenu() {
     const sidebarToggle = document.getElementById('sidebarToggle');
     const sidebar = document.querySelector('.sidebar');
     const sidebarOverlay = document.getElementById('sidebarOverlay');
-    
+
     // Show/hide toggle button based on screen size
     function toggleSidebarButton() {
         if (window.innerWidth <= 768) {
@@ -55,31 +55,31 @@ function initializeMobileMenu() {
             sidebarOverlay.classList.remove('show');
         }
     }
-    
+
     // Initialize on load
     toggleSidebarButton();
-    
+
     // Listen for window resize
     window.addEventListener('resize', toggleSidebarButton);
-    
+
     if (sidebarToggle && sidebar) {
-        sidebarToggle.addEventListener('click', function() {
-            sidebar.classList.toggle('show');
-            sidebarOverlay.classList.toggle('show');
+        sidebarToggle.addEventListener('click', function () {
+            sidebar.classList.toggle('show'); // Toggle sidebar visibility
+            sidebarOverlay.classList.toggle('show'); // Toggle overlay visibility
         });
-        
+
         // Close sidebar when clicking overlay
         if (sidebarOverlay) {
-            sidebarOverlay.addEventListener('click', function() {
+            sidebarOverlay.addEventListener('click', function () {
                 sidebar.classList.remove('show');
                 sidebarOverlay.classList.remove('show');
             });
         }
-        
+
         // Close sidebar when clicking on a nav link (mobile)
         const navLinks = document.querySelectorAll('.nav-pills a');
         navLinks.forEach(link => {
-            link.addEventListener('click', function() {
+            link.addEventListener('click', function () {
                 if (window.innerWidth <= 768) {
                     sidebar.classList.remove('show');
                     sidebarOverlay.classList.remove('show');
@@ -98,10 +98,10 @@ function fetchData() {
 
     // Activate section based on hash (e.g., #purchasesSection)
     activateSectionFromHash();
-    
+
     // Initialize mobile menu
     initializeMobileMenu();
-    
+
     // Initialize menu icon for categories and filters
     initializeMenuIcon();
 }
@@ -125,7 +125,7 @@ function activateSectionFromHash() {
 window.addEventListener('hashchange', activateSectionFromHash);
 
 // Handle window resize for responsive behavior
-window.addEventListener('resize', function() {
+window.addEventListener('resize', function () {
     const sidebar = document.querySelector('.sidebar');
     if (window.innerWidth > 768 && sidebar) {
         sidebar.classList.remove('show');
@@ -910,40 +910,6 @@ document.getElementById('popupDetailsOverlay').addEventListener('click', functio
         closeDetailsPopup();
     }
 });
-
-// Menu icon functionality for categories and filters
-function initializeMenuIcon() {
-    const menuBtn = document.getElementById("menuIcon");
-    const filterContainer = document.querySelector(".filterCatContainer");
-    const overlay = document.querySelector(".overlay");
-    
-    if (menuBtn && filterContainer) {
-        menuBtn.addEventListener("click", () => {
-            filterContainer.classList.toggle("show");
-            if (overlay) {
-                overlay.classList.toggle("show");
-            }
-        });
-        
-        // Close filter container when clicking overlay
-        if (overlay) {
-            overlay.addEventListener("click", () => {
-                filterContainer.classList.remove("show");
-                overlay.classList.remove("show");
-            });
-        }
-        
-        // Close filter container when clicking outside
-        document.addEventListener("click", (e) => {
-            if (!filterContainer.contains(e.target) && !menuBtn.contains(e.target)) {
-                filterContainer.classList.remove("show");
-                if (overlay) {
-                    overlay.classList.remove("show");
-                }
-            }
-        });
-    }
-}
 
 
 
