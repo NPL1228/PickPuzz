@@ -480,10 +480,10 @@ footer {
     margin-top: 111px;
 }
 
-/* Google Translate in footer (right-bottom) */
+/* Google Translate below Contact Us */
 #google_translate_element {
-    position: absolute;
-    right: 40px;
+    margin-top: 15px;
+    text-align: center;
 }
 
 /* Hide Google top frame */
