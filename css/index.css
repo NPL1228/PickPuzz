@@ -69,8 +69,8 @@
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
     flex: 1;
-    min-width: 800px;
-    max-width: 500px;
+    min-width: 300px;
+    max-width: 800px;
 
 }
 
@@ -81,19 +81,19 @@
     border-radius: 50px;
     margin-left: 20px;
     flex: 1;
-    min-width: 600px;
-    max-width: 500px;
+    min-width: 300px;
+    max-width: 600px;
 
 }
 
 #cat3 {
-    width: 1420px;
+    width: 1400px;
     height: 500px;
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
-    margin-left: 35px;
+    margin-left: 20px;
     width: 100%;
-    max-width: 1420px;
+    max-width: 1370px;
     max-height: 500px;
 
 }
