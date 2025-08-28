@@ -197,7 +197,7 @@ function saveProfile() {
     const gender = selectedGender ? selectedGender.value : 'other';
 
     if (isNaN(phone) || phone.length !== 8) {
-        alert("Phone numbers must be a 10 number digit only!");
+        alert("Phone numbers must be a 8 number digit only!");
         return;
     }
 
