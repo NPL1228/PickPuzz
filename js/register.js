@@ -1,6 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".registerForm");
 
+    if(!localStorage.getItem('cookiesConsent')){
+        localStorage.setItem('cookiesConsent', 'false');
+    }
+    
     // Email validation function
     function isValidEmail(email) {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
