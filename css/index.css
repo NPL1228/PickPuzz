@@ -87,13 +87,13 @@
 }
 
 #cat3 {
-    width: 1400px;
+    width: 1420px;
     height: 500px;
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
-    margin-left: 20px;
+    margin-left: 35px;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1420px;
     max-height: 500px;
 
 }
