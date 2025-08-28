@@ -22,7 +22,6 @@
 .categories img {
     border-radius: 20px; 
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease-in-out;
     flex: 0 0 25%;
     display: block;
     width: 100%;
@@ -37,14 +36,21 @@
     height: 100%;
 }
 
-#cat1:hover,
-#cat2:hover,
-#cat4:hover,
-#cat5:hover,
-#cat3:hover {
-    transform: scale(1.02);
-    border: none;
+#cat1 a,
+#cat2 a,
+#cat4 a,
+#cat5 a,
+#cat3 a {
     transition: transform 0.5s ease-in-out;
+}
+
+#cat1 a:hover,
+#cat2 a:hover,
+#cat4 a:hover,
+#cat5 a:hover,
+#cat3 a:hover {
+    transform: scale(1.02) !important;
+    border: none;
     z-index: 2;
     cursor: pointer;
 }
@@ -63,10 +69,10 @@
     height: 500px;
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
-    transition: transform 0.5s ease-in-out;
     flex: 1;
     min-width: 800px;
     max-width: 500px;
+
 }
 
 #cat2 {
@@ -75,10 +81,10 @@
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
     margin-left: 20px;
-    transition: transform 0.5s ease-in-out;
     flex: 1;
     min-width: 600px;
     max-width: 500px;
+
 }
 
 #cat3 {
@@ -87,7 +93,6 @@
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
     margin-left: 35px;
-    transition: transform 0.5s ease-in-out;
     width: 100%;
     max-width: 1420px;
     max-height: 500px;
@@ -99,7 +104,6 @@
     height: 500px;
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
-    transition: transform 0.5s ease-in-out;
     flex: 1;
     min-width: 300px;
     max-width: 600px;
@@ -111,7 +115,6 @@
     background-color: rgb(255, 255, 255);
     border-radius: 50px;
     margin-left: 20px;
-    transition: transform 0.5s ease-in-out;
     flex: 1;
     min-width: 300px;
     max-width: 800px;
