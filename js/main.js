@@ -460,11 +460,6 @@ function ensureGoogleTranslateElement() {
 
 function loadGoogleTranslateScript() {
   console.log("Loading Google Translate script");
-  // If already initialized by inline script or previous call, skip
-  // if (window.google && window.google.translate && document.getElementById('google_translate_element')) {
-  //   console.log("Google Translate already initialized");
-  //   return;
-  // }
   if (document.getElementById('google_translate_script')) return;
 
   // Provide global init callback
