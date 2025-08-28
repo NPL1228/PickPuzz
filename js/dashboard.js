@@ -196,8 +196,8 @@ function saveProfile() {
     const selectedGender = document.querySelector('input[name="editGender"]:checked');
     const gender = selectedGender ? selectedGender.value : 'other';
 
-    if (isNaN(phone)) {
-        alert("Phone numbers must be number digit only!");
+    if (isNaN(phone) || phone.length !== 8) {
+        alert("Phone numbers must be a 10 number digit only!");
         return;
     }
 
@@ -551,8 +551,13 @@ function saveAddress() {
     const state = document.getElementById('state').value;
     const phone = document.getElementById('addressPhone').value;
 
-    if (isNaN(phone)) {
-        alert("Phone numbers must be number digit only!");
+    if (isNaN(phone) || phone.length !== 10) {
+        alert("Phone numbers must be a 10 number digit only!");
+        return;
+    }
+
+    if (isNaN(postalCode) || postalCode.length !== 5) {
+        alert("Postal Code must be a 5 number digit only!");
         return;
     }
 

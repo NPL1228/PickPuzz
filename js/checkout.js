@@ -53,12 +53,12 @@ let partialCart = null;
 try {
   const raw = sessionStorage.getItem('directCheckoutItem');
   if (raw) directItem = JSON.parse(raw);
-  
+
   // Check for partial cart from cart page
   const partialRaw = sessionStorage.getItem('partialCart');
   if (partialRaw) partialCart = JSON.parse(partialRaw);
-} catch (e) { 
-  directItem = null; 
+} catch (e) {
+  directItem = null;
   partialCart = null;
 }
 
@@ -177,10 +177,15 @@ function saveAddress() {
   const state = document.getElementById('state').value;
   const phone = document.getElementById('addressPhone').value;
 
-  if (isNaN(phone)) {
-    alert("Phone numbers must be number digit only!");
+  if (isNaN(phone) || phone.length !== 10) {
+    alert("Phone numbers must be a 10 number digit only!");
     return;
-}
+  }
+
+  if (isNaN(postalCode) || postalCode.length !== 5) {
+    alert("Postal Code must be a 5 number digit only!");
+    return;
+  }
 
   if (!title || !address1 || !postalCode || !city || !state || !phone) {
     alert('Please fill in all required address fields');
