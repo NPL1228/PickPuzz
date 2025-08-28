@@ -54,18 +54,17 @@
     </div>
 
     <main>
-        <!-- Mobile Sidebar Toggle Button -->
-        <button class="sidebar-toggle" id="sidebarToggle" style="display: none;">
-            <i class="fas fa-bars"></i>
-        </button>
-        
-        <!-- Sidebar Overlay for Mobile -->
-        <div class="sidebar-overlay" id="sidebarOverlay"></div>
-        
         <div class="container-fluid">
             <div class="row">
                 <!-- Sidebar Column -->
                 <div class="col-2">
+                    <!-- Mobile Sidebar Toggle Button -->
+                    <!-- Sidebar Overlay for Mobile -->
+                    <!-- Sidebar Overlay for Mobile -->
+                    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+                    <button class="sidebar-toggle" id="sidebarToggle" style="display: none;">
+                        <i class="fas fa-bars"></i>
+                    </button>
                     <div class="sidebar">
                         <ul class="nav flex-column nav-pills">
                             <li class="nav-item">
@@ -496,7 +495,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="filterSub">
                     <h2>Price Range</h2>
                     <div class="priceInputContainer">
@@ -505,30 +504,32 @@
                                 <span>Min</span>
                                 <input type="number" class="minInput" value="0" title="Minimum price">
                                 <label for="minInput"></label>
-    
+
                             </div>
                             <div class="priceField">
                                 <span>Max</span>
                                 <input type="number" class="maxInput" value="1000" title="Maximum price">
                                 <label for="maxInput"></label>
-    
+
                             </div>
                         </div>
                         <div class="slider">
                             <div class="priceSlider"></div>
                         </div>
                     </div>
-    
+
                     <div class="rangeInput">
-                        <input type="range" class="minRange" min="0" max="1000" value="0" step="1" title="Minimum price range">
+                        <input type="range" class="minRange" min="0" max="1000" value="0" step="1"
+                            title="Minimum price range">
                         <label for="minRange"></label>
-    
-                        <input type="range" class="maxRange" min="0" max="1000" value="1000" step="1" title="Maximum price range">
+
+                        <input type="range" class="maxRange" min="0" max="1000" value="1000" step="1"
+                            title="Maximum price range">
                         <label for="maxRange"></label>
-    
+
                     </div>
                 </div>
-    
+
                 <div class="filterSub" data-filter="pieces">
                     <h2>Pieces</h2>
                     <div class="checkboxGroup">
